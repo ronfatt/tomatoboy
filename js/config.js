@@ -1,5 +1,5 @@
 /**
- * 番茄仔 Tomato Boy — 官方品牌与门店数据配置中心 (Gen-Z Street Foodie Edition)
+ * 番茄仔 Tomato Boy — 官方品牌与门店数据配置中心 (实拍菜品全景版)
  */
 
 window.TOMATO_BOY_CONFIG = {
@@ -17,14 +17,14 @@ window.TOMATO_BOY_CONFIG = {
 
   contact: {
     whatsappNumber: "WHATSAPP_NUMBER_HERE", 
-    whatsappDefaultMessage: "你好番茄仔！我想咨询 / 预订【沙巴番茄海鲜面】！",
+    whatsappDefaultMessage: "你好番茄仔！我在官网上看到了实拍招牌面，想咨询预订！",
     googleMapsUrl: "https://maps.google.com/?q=Tomato+Boy+Cheras+Kuala+Lumpur",
     wazeUrl: "https://waze.com/ul?q=Tomato+Boy+Cheras+Kuala+Lumpur",
     address: {
       displayAddressZh: "吉隆坡 蕉赖 (Cheras, Kuala Lumpur)",
       displayAddressEn: "Cheras, Kuala Lumpur, Malaysia",
-      fullAddressPlaceholder: "详细门牌与商圈地址即将公布 (Cheras 核心美食圈)",
-      parkingInfo: "街区充足停车位 / 便利泊车"
+      fullAddressPlaceholder: "详细门牌与商圈地址即将公布 (Cheras 核心据点)",
+      parkingInfo: "街区充足停车位 / 周边便利泊车"
     },
     openingHours: {
       displayZh: "筹备试营业中 · 10:30 AM – 9:30 PM (周一至周日)",
@@ -38,96 +38,134 @@ window.TOMATO_BOY_CONFIG = {
     }
   },
 
-  // 互动自选测配器数据 (Interactive Taste Configurator)
+  // 手机端自选测配器数据 (全部联动高清真实实拍图)
   tasteConfigurator: [
     {
       id: "seafood-combo",
       tabName: "👑 豪华全料海鲜面",
-      dishNameZh: "招牌番茄海鲜面 (全料王)",
-      tagline: "大虾 + 厚切海鱼片 + 现煮浓郁红汤",
-      acidity: "★★★★★ (果酸浓郁醒胃)",
-      sweetness: "★★★★★ (双重海产清甜)",
-      image: "assets/images/tomato-boy-logo-badge.jpg",
-      note: "啊顺师父力推！生猛鲜虾与嫩滑鱼肉汇聚一碗，红汤挂面，鲜到上头！"
+      dishNameZh: "招牌番茄海鲜全料面",
+      tagline: "大虾 + 肥厚生蚝 + 厚切鱼片 + 酥脆炸鱼皮",
+      acidity: "★★★★★ (果酸浓郁开胃)",
+      sweetness: "★★★★★ (三重海味天然回甘)",
+      image: "assets/images/dish-signature-seafood-combo.jpg",
+      note: "与 Logo 完美呼应的镇店代表作！整只红虾、大颗生蚝与鲜鱼片滚汤现烫，配上炸鱼皮吸满茄汁，鲜到上头！"
     },
     {
-      id: "fresh-prawn",
-      tabName: "🦐 鲜虾派必点",
-      dishNameZh: "番茄鲜虾面 (甘甜脆弹)",
-      tagline: "原只生猛海虾现煮，虾膏精华融入番茄汤",
-      acidity: "★★★★☆ (清爽果酸提味)",
-      sweetness: "★★★★★ (虾青素与天然甘甜)",
-      image: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1000&q=80",
-      note: "虾肉紧致弹牙，每一口汤汁都带着海岛沙滩的气息！"
+      id: "giant-prawn-noodles",
+      tabName: "🦐 生猛巨头虾生面",
+      dishNameZh: "生猛大头虾香脆生面",
+      tagline: "对开焦香大头虾，爆满虾膏融入滑蛋芡汁",
+      acidity: "★★★☆☆ (鲜香醇厚)",
+      sweetness: "★★★★★ (爆膏虾甜与镬气)",
+      image: "assets/images/dish-giant-prawn-noodles.jpg",
+      note: "金黄焦香巨型大头虾，虾肉脆韧弹牙，搭配炸生面与浓郁滑蛋，镬气十足！"
     },
     {
-      id: "fish-slice",
-      tabName: "🐟 嫩滑鱼肉派",
-      dishNameZh: "番茄鱼肉面 (厚切鲜爽)",
-      tagline: "厚切海鱼片温火轻烫，嫩而不散，无腥清甜",
-      acidity: "★★★★★ (极度开胃生津)",
-      sweetness: "★★★★☆ (鱼肉纯净甘甜)",
-      image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1000&q=80",
-      note: "嫩滑鱼片完全吸饱番茄精华，热汤滑入胃底超疗愈！"
+      id: "grouper-fish",
+      tabName: "🐟 厚切石斑鱼片面",
+      dishNameZh: "厚切石斑鱼片番茄面",
+      tagline: "厚切石斑鱼片整齐排列，纯净鲜滑无腥",
+      acidity: "★★★★★ (自然番茄果酸)",
+      sweetness: "★★★★☆ (海鱼纯正胶质清甜)",
+      image: "assets/images/dish-tomato-grouper-fish.jpg",
+      note: "石斑鱼片厚切不断生，鱼肉如蒜瓣般细嫩，浸入纯正熬煮番茄果泥，暖胃又过瘾！"
+    },
+    {
+      id: "red-snapper",
+      tabName: "🔴 鲜红鲷鱼片番茄面",
+      dishNameZh: "深海红鲷鱼片番茄面",
+      tagline: "红皮紧实鱼肉，红汤衬红鱼的极致视觉",
+      acidity: "★★★★★ (极度生津醒胃)",
+      sweetness: "★★★★☆ (肉质弹爽甘鲜)",
+      image: "assets/images/dish-tomato-red-snapper.jpg",
+      note: "精选深海红鱼切片，红润诱人，鱼皮爽滑鱼肉紧实，每一口汤都透着山打根的海风滋味！"
+    },
+    {
+      id: "giant-prawn-rice",
+      tabName: "🍚 招牌大头虾特调饭",
+      dishNameZh: "浓郁海味大头虾特调饭",
+      tagline: "生猛大头虾开背，浓香特制酱汁裹满米饭",
+      acidity: "★★★★☆ (浓醇咸鲜微酸)",
+      sweetness: "★★★★★ (虾汁拌饭灵魂绝配)",
+      image: "assets/images/dish-giant-prawn-rice.jpg",
+      note: "不想吃面？这一盘大虾盖饭绝对震撼！虾膏与海鲜浓汁浸润每一粒米饭，口口暴击！"
     }
   ],
 
-  // 经典菜单项
+  // 完整实拍经典菜单库
   menu: [
     {
       id: "dish-signature-combo",
-      badge: "镇店爆品 👑",
-      nameZh: "番茄海鲜面",
-      nameEn: "Signature Tomato Seafood Noodles",
+      badge: "镇店之宝 👑",
+      nameZh: "招牌番茄海鲜全料面",
+      nameEn: "Signature Seafood Tomato Noodles",
       price: "RM [待定 / TBC]",
-      image: "assets/images/tomato-boy-logo-badge.jpg",
-      description: "啊顺师父看家之作！鲜虾与厚切鱼肉在浓稠番茄红汤中现煮滚沸，酸香生津，海味甘猛，鲜到上头！"
+      image: "assets/images/dish-signature-seafood-combo.jpg",
+      description: "啊顺师父巅峰作！生猛大虾、大颗生蚝、厚切鱼片与金黄炸鱼皮汇于一碗，熟成番茄天然酸香渗透每一根面条，鲜到上头！"
     },
     {
-      id: "dish-fish",
-      badge: "鲜嫩爽滑 🐟",
-      nameZh: "番茄鱼肉面",
-      nameEn: "Tomato Fish Slice Noodles",
+      id: "dish-giant-prawn-noodles",
+      badge: "爆膏必点 🦐",
+      nameZh: "生猛大头虾脆生面",
+      nameEn: "Giant River Prawn Crispy Noodles",
       price: "RM [待定 / TBC]",
-      image: "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=1000&q=80",
-      description: "精选厚切海鱼片，精准火候煮至恰好断生，肉质滑嫩无腥，与熟成番茄的天然果酸碰撞出绝妙层次。"
+      image: "assets/images/dish-giant-prawn-noodles.jpg",
+      description: "巨无霸大头虾对开焦香，虾膏金黄流淌，与香脆炸生面及滑蛋浓芡碰撞，镬气升腾，满足感拉满！"
     },
     {
-      id: "dish-prawn",
-      badge: "海味甘甜 🦐",
-      nameZh: "番茄鲜虾面",
-      nameEn: "Tomato Fresh Prawn Noodles",
+      id: "dish-grouper-fish",
+      badge: "鲜滑厚切 🐟",
+      nameZh: "厚切石斑鱼片番茄面",
+      nameEn: "Grouper Fish Slice Tomato Noodles",
       price: "RM [待定 / TBC]",
-      image: "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1000&q=80",
-      description: "生猛大虾滚汤现煮，脆弹紧致。虾汁融入番茄高汤，汤头更显醇厚鲜香，嗦面吸汁极其过瘾。"
+      image: "assets/images/dish-tomato-grouper-fish.jpg",
+      description: "严选新鲜石斑鱼厚切，鱼片紧实滑润无暗刺，搭配慢火熬煮的鲜番茄原泥高汤，清润酸爽，久喝不燥。"
+    },
+    {
+      id: "dish-red-snapper",
+      badge: "深海红鱼 🔴",
+      nameZh: "鲜红鲷鱼片番茄面",
+      nameEn: "Red Snapper Tomato Noodles",
+      price: "RM [待定 / TBC]",
+      image: "assets/images/dish-tomato-red-snapper.jpg",
+      description: "红亮诱人的深海红鱼切片，肉质细嫩弹牙，浸润在酸香四溢的番茄汤中，入口甘美温润，生津开胃。"
+    },
+    {
+      id: "dish-giant-prawn-rice",
+      badge: "拌饭神器 🍚",
+      nameZh: "招牌大头虾海味浓汁饭",
+      nameEn: "Giant Prawn with Rich Broth Rice",
+      price: "RM [待定 / TBC]",
+      image: "assets/images/dish-giant-prawn-rice.jpg",
+      description: "生猛大虾开背香煎，淋上特制酸甜海味浓汁与蒜酥，搭配香热米饭与嫩绿时蔬，浓郁开胃，暴风吸入！"
     }
   ],
 
-  // 针对 SEO 的常见问答
+  // 常见问答 FAQ
   faqs: [
     {
-      qZh: "番茄仔 Tomato Boy 在哪里？",
-      qEn: "Where is Tomato Boy located?",
-      aZh: "番茄仔位于马来西亚吉隆坡蕉赖 (Cheras, Kuala Lumpur)。我们把来自沙巴山打根的风味带到吉隆坡，详细地址与开业日期即将公布，敬请留意页面最新动态！",
-      aEn: "Tomato Boy is located in Cheras, Kuala Lumpur. Exact address will be officially announced shortly."
+      qZh: "番茄仔的番茄海鲜面有什么独特之处？",
+      qEn: "What makes Tomato Boy noodles special?",
+      aZh: "看看我们的真实实拍！每一碗都是「番茄够浓，海鲜够猛」——自熬纯番茄果泥酸香开胃，搭配整只大虾、肥美生蚝、厚切石斑鱼片及手工炸鱼皮现点现煮，拒绝香精勾兑，天然鲜甜！",
+      aEn: "Our noodles feature freshly simmered real tomato purée broth paired with whole fresh prawns, plump oysters, thick grouper fish slices, and crispy fish skin."
     },
     {
-      qZh: "番茄仔卖什么？为什么说“鲜到上头”？",
-      qEn: "What does Tomato Boy serve?",
-      aZh: "番茄仔主打【沙巴风味番茄海鲜面】！核心特色是「番茄够浓，海鲜够猛」——精选熟成番茄熬制浓郁果酸红汤，配上海虾与鱼肉现点现煮，每一口都酸爽鲜甜、生津开胃！",
-      aEn: "We specialise in Sabah-inspired Tomato Seafood Noodles, featuring slow-simmered rich tomato broth and freshly boiled seafood."
+      qZh: "番茄仔在哪里？什么时候试营业？",
+      qEn: "Where is Tomato Boy located?",
+      aZh: "番茄仔位于吉隆坡蕉赖 (Cheras, Kuala Lumpur)。我们正在积极筹备试营业，具体店址与开业时间将第一时间在官方渠道公布，欢迎通过 WhatsApp 提前关注登记！",
+      aEn: "Located in Cheras, Kuala Lumpur. Soft opening dates and exact shoplot will be officially announced shortly."
     },
     {
       qZh: "啊顺师父是谁？",
       qEn: "Who is Chef Ah Soon?",
-      aZh: "啊顺师父来自沙巴山打根（Sandakan, Sabah），是番茄仔招牌番茄海鲜面的主理厨师。师父在山打根海港浸润多年，对海鲜鲜度与番茄汤底配比有着严苛标准。",
-      aEn: "Chef Ah Soon hails from Sandakan, Sabah. He is the master chef behind our signature tomato seafood broth."
+      aZh: "啊顺师父来自沙巴山打根 (Sandakan, Sabah)，山打根海港的海风与新鲜海产滋养了师父的烹饪灵感。师父将熟悉的沙巴海鲜煮面技艺带到 Cheras，让大家不用飞沙巴也能吃到地道风味。",
+      aEn: "Chef Ah Soon hails from Sandakan, Sabah, bringing beloved Sabah-inspired seafood culinary heritage to Cheras, KL."
     },
     {
-      qZh: "有什么招牌推荐？",
-      qEn: "What are your signature dishes?",
-      aZh: "首推【招牌番茄海鲜面】（鲜虾与鱼肉双拼的豪华全料王）。喜欢纯纯鱼肉的可点【番茄鱼肉面】，爱吃弹牙虾仁的必选【番茄鲜虾面】！",
-      aEn: "Our top recommendation is the Signature Tomato Seafood Noodles (full combo with prawns and fish slices)."
+      qZh: "除了番茄面，还有其他选择吗？",
+      qEn: "Are there other options besides tomato noodles?",
+      aZh: "有的！除了招牌全料面与石斑鱼片面，我们还推出镬气十足的【生猛大头虾脆生面】以及浓郁下饭的【大头虾特调浓汁饭】，面饭俱备，满足所有海鲜爱好者的胃！",
+      aEn: "Yes! In addition to tomato soup noodles, we also serve Giant River Prawn Crispy Noodles and Giant Prawn Rich Sauce Rice."
     }
   ],
 
