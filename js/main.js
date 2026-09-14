@@ -1,271 +1,286 @@
 /**
- * 番茄仔 Tomato Boy — 核心交互与动态数据渲染
+ * 番茄仔 Tomato Boy — 移动优先 · 潮流互动逻辑
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   const config = window.TOMATO_BOY_CONFIG;
 
-  // 1. 初始化 Analytics 代理追踪体系
   initAnalytics(config);
-
-  // 2. 动态渲染菜单与组件
-  renderMenu(config);
-  renderSeafoodShowcase(config);
+  initMascotTapReaction();
+  initTasteConfigurator(config);
+  renderMenuSwiper(config);
   renderFAQs(config);
-
-  // 3. 绑定各处行动点 (WhatsApp, Google Maps, Navigation)
-  bindActionLinks(config);
-
-  // 4. 初始化滚动深度检测 (Scroll Depth Tracker)
-  initScrollDepthTracking();
+  bindActions(config);
+  initScrollTracker();
 });
 
 /**
- * 分析追踪框架 (GA4 & Meta Pixel Integration)
+ * 趣味互动 1：点击番茄仔 IP 触发 "🍅 鲜到上头！+1" 飞天动效
  */
-function initAnalytics(config) {
-  const { googleAnalyticsId, metaPixelId } = config.analytics || {};
+function initMascotTapReaction() {
+  const stage = document.getElementById('mascot-badge-stage');
+  if (!stage) return;
 
-  // 仅在已配置真实有效 ID 时加载官方 SDK
-  if (googleAnalyticsId && googleAnalyticsId !== 'GA4_ID_HERE') {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
-    document.head.appendChild(script);
+  const reactionQuotes = [
+    "🍅 鲜到上头！",
+    "🔥 番茄够浓！",
+    "🦐 海鲜够猛！",
+    "🍜 嗦一口爆汁！",
+    "👑 招牌必吃！",
+    "✨ 赞啦！+1"
+  ];
 
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { window.dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', googleAnalyticsId);
-  }
+  stage.addEventListener('click', (e) => {
+    // 弹性缩放
+    stage.style.transform = 'scale(0.92)';
+    setTimeout(() => { stage.style.transform = ''; }, 160);
 
-  if (metaPixelId && metaPixelId !== 'META_PIXEL_ID_HERE') {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', metaPixelId);
-    fbq('track', 'PageView');
-  }
-}
+    // 随机文案飞出
+    const quote = reactionQuotes[Math.floor(Math.random() * reactionQuotes.length)];
+    createFlyingParticle(e.clientX, e.clientY, quote);
 
-/**
- * 统一事件分发函数
- */
-function trackEvent(eventName, params = {}) {
-  // 控制台调试日志
-  console.log(`[Event Tracked: ${eventName}]`, params);
-
-  // GA4 统一上报
-  if (typeof window.gtag === 'function') {
-    window.gtag('event', eventName, params);
-  }
-
-  // Meta Pixel 统一上报
-  if (typeof window.fbq === 'function') {
-    window.fbq('trackCustom', eventName, params);
-  }
-}
-
-/**
- * 渲染菜单卡片
- */
-function renderMenu(config) {
-  const container = document.getElementById('menu-items-container');
-  if (!container || !config.menu) return;
-
-  const html = config.menu.map((item, index) => {
-    const isFeatured = item.isSignature ? 'featured' : '';
-    const badgeHtml = item.badge ? `<div class="menu-badge">${item.badge}</div>` : '';
-
-    return `
-      <article class="menu-card ${isFeatured}" id="${item.id}">
-        ${badgeHtml}
-        <div class="menu-img-wrap">
-          <img 
-            src="${item.image}" 
-            alt="${item.nameZh} - ${item.nameEn} | 番茄仔 Tomato Boy" 
-            class="menu-img" 
-            loading="lazy"
-            onerror="this.src='assets/images/logo.svg'; this.style.padding='24px';"
-          >
-        </div>
-        <div class="menu-card-content">
-          <div class="menu-card-header">
-            <h3 class="menu-card-title">${item.nameZh}</h3>
-            <span class="menu-price-tag">${item.price}</span>
-          </div>
-          <div class="menu-card-subtitle">${item.nameEn}</div>
-          <p class="menu-card-desc">${item.description}</p>
-          <div class="menu-card-action">
-            <a href="#location" class="btn btn-secondary btn-sm order-inquire-btn" data-dish="${item.nameZh}">
-              到店品尝 / 询问详情 →
-            </a>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join('');
-
-  container.innerHTML = html;
-
-  // 绑定菜单内询问点击
-  container.querySelectorAll('.order-inquire-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const dish = btn.getAttribute('data-dish');
-      trackEvent('menu_click', { dish_name: dish });
-    });
+    trackEvent('mascot_interactive_tap', { quote });
   });
 }
 
-/**
- * 渲染海鲜食材专区
- */
-function renderSeafoodShowcase(config) {
-  const container = document.getElementById('seafood-showcase-container');
-  if (!container || !config.seafoodShowcase) return;
+function createFlyingParticle(x, y, text) {
+  const particle = document.createElement('div');
+  particle.className = 'tomato-flying-particle';
+  particle.innerText = text;
+  particle.style.left = `${x}px`;
+  particle.style.top = `${y}px`;
+  document.body.appendChild(particle);
 
-  const html = config.seafoodShowcase.map(item => `
-    <div class="seafood-card">
-      <div style="overflow:hidden;">
-        <img 
-          src="${item.image}" 
-          alt="${item.nameZh} | 番茄仔新鲜食材" 
-          class="seafood-card-img" 
-          loading="lazy"
-          onerror="this.src='assets/images/logo.svg'; this.style.padding='24px';"
-        >
-      </div>
-      <div class="seafood-card-body">
-        <h3>${item.nameZh}</h3>
-        <div class="seafood-card-en">${item.nameEn}</div>
-        <p>${item.desc}</p>
-      </div>
-    </div>
+  setTimeout(() => {
+    particle.remove();
+  }, 850);
+}
+
+/**
+ * 趣味互动 2：自选鲜度测配器 (Taste Configurator)
+ */
+function initTasteConfigurator(config) {
+  const tabsWrap = document.getElementById('taste-tabs-wrap');
+  const previewImg = document.getElementById('taste-preview-img');
+  const dishTitle = document.getElementById('taste-dish-title');
+  const dishTagline = document.getElementById('taste-dish-tagline');
+  const metricAcidity = document.getElementById('taste-metric-acidity');
+  const metricSweetness = document.getElementById('taste-metric-sweetness');
+  const dishNote = document.getElementById('taste-dish-note');
+  const ctaBtn = document.getElementById('taste-order-cta');
+
+  if (!tabsWrap || !config.tasteConfigurator) return;
+
+  // 渲染选项卡 Tabs
+  tabsWrap.innerHTML = config.tasteConfigurator.map((item, index) => `
+    <button class="taste-tab-btn ${index === 0 ? 'active' : ''}" data-index="${index}">
+      ${item.tabName}
+    </button>
   `).join('');
 
-  container.innerHTML = html;
+  // 切换内容
+  function switchTab(index) {
+    const data = config.tasteConfigurator[index];
+    if (!data) return;
+
+    tabsWrap.querySelectorAll('.taste-tab-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+
+    if (previewImg) {
+      previewImg.style.opacity = '0.3';
+      setTimeout(() => {
+        previewImg.src = data.image;
+        previewImg.style.opacity = '1';
+      }, 150);
+    }
+
+    if (dishTitle) dishTitle.innerText = data.dishNameZh;
+    if (dishTagline) dishTagline.innerText = data.tagline;
+    if (metricAcidity) metricAcidity.innerText = data.acidity;
+    if (metricSweetness) metricSweetness.innerText = data.sweetness;
+    if (dishNote) dishNote.innerText = data.note;
+
+    if (ctaBtn) {
+      const msg = encodeURIComponent(`你好番茄仔！我在官网上看中了【${data.dishNameZh}】，想了解/预订！`);
+      ctaBtn.setAttribute('data-msg', msg);
+    }
+
+    trackEvent('taste_configurator_switch', { dish: data.dishNameZh });
+  }
+
+  tabsWrap.querySelectorAll('.taste-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-index'), 10);
+      switchTab(idx);
+    });
+  });
+
+  // 初始化第一项
+  switchTab(0);
+}
+
+/**
+ * 渲染经典菜单滑动卡片
+ */
+function renderMenuSwiper(config) {
+  const container = document.getElementById('menu-items-swiper');
+  if (!container || !config.menu) return;
+
+  container.innerHTML = config.menu.map(dish => `
+    <article class="dish-card" id="${dish.id}">
+      <div class="dish-top-img-wrap">
+        <span class="dish-badge-flag">${dish.badge}</span>
+        <img 
+          src="${dish.image}" 
+          alt="${dish.nameZh} | 番茄仔 Tomato Boy" 
+          class="dish-top-img" 
+          loading="lazy"
+          onerror="this.src='assets/images/tomato-boy-logo-badge.jpg';"
+        >
+      </div>
+      <div class="dish-body">
+        <div class="dish-header-row">
+          <h3 class="dish-name">${dish.nameZh}</h3>
+          <span class="dish-price-pill">${dish.price}</span>
+        </div>
+        <div class="dish-en">${dish.nameEn}</div>
+        <p class="dish-desc">${dish.description}</p>
+        <div>
+          <a href="#location" class="btn btn-pill-fire btn-sm" style="width:100%;">
+            到店嗦面 / 了解更多 →
+          </a>
+        </div>
+      </div>
+    </article>
+  `).join('');
 }
 
 /**
  * 渲染与绑定 FAQ 手风琴
  */
 function renderFAQs(config) {
-  const container = document.getElementById('faq-container');
+  const container = document.getElementById('faq-accordion-wrap');
   if (!container || !config.faqs) return;
 
-  const html = config.faqs.map((faq, index) => `
-    <div class="faq-item ${index === 0 ? 'active' : ''}">
-      <button class="faq-question-btn" aria-expanded="${index === 0 ? 'true' : 'false'}">
-        <span class="faq-q-text">${faq.qZh}</span>
-        <svg class="faq-icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+  container.innerHTML = config.faqs.map((faq, index) => `
+    <div class="faq-box ${index === 0 ? 'active' : ''}">
+      <button class="faq-q-btn" aria-expanded="${index === 0 ? 'true' : 'false'}">
+        <span>${faq.qZh}</span>
+        <svg class="faq-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
-      <div class="faq-answer-wrap">
-        <div class="faq-answer-text">
+      <div class="faq-a-drawer">
+        <div class="faq-a-text">
           <p>${faq.aZh}</p>
-          <p style="margin-top: 6px; font-size: 0.8125rem; opacity: 0.75;">${faq.aEn}</p>
+          <p style="margin-top: 6px; font-size: 0.75rem; opacity: 0.7;">${faq.aEn}</p>
         </div>
       </div>
     </div>
   `).join('');
 
-  container.innerHTML = html;
-
-  // 绑定手风琴展开与收起
-  container.querySelectorAll('.faq-question-btn').forEach(btn => {
+  container.querySelectorAll('.faq-q-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const wasActive = item.classList.contains('active');
+      const box = btn.closest('.faq-box');
+      const wasActive = box.classList.contains('active');
 
-      // 收起其他已展开项（保持整洁）
-      container.querySelectorAll('.faq-item').forEach(other => {
-        other.classList.remove('active');
-        const otherBtn = other.querySelector('.faq-question-btn');
-        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      container.querySelectorAll('.faq-box').forEach(b => {
+        b.classList.remove('active');
+        b.querySelector('.faq-q-btn').setAttribute('aria-expanded', 'false');
       });
 
       if (!wasActive) {
-        item.classList.add('active');
+        box.classList.add('active');
         btn.setAttribute('aria-expanded', 'true');
-        trackEvent('faq_click', { question: btn.querySelector('.faq-q-text').innerText });
+        trackEvent('faq_expand', { question: btn.innerText.trim() });
       }
     });
   });
 }
 
 /**
- * 动态链接绑定 (WhatsApp, Maps, Scroll Anchors)
+ * 动态事件与链接绑定 (WhatsApp, Maps, Scroll Anchors)
  */
-function bindActionLinks(config) {
+function bindActions(config) {
   const whatsappNum = config.contact.whatsappNumber;
-  const whatsappMsg = encodeURIComponent(config.contact.whatsappDefaultMessage);
   const isPlaceholderNumber = !whatsappNum || whatsappNum === 'WHATSAPP_NUMBER_HERE';
 
-  // WhatsApp 链接配置
-  const whatsappUrl = isPlaceholderNumber 
-    ? 'javascript:void(0);' 
-    : `https://wa.me/${whatsappNum.replace(/[^0-9]/g, '')}?text=${whatsappMsg}`;
-
-  document.querySelectorAll('.whatsapp-trigger-btn').forEach(btn => {
-    btn.setAttribute('href', whatsappUrl);
-    if (!isPlaceholderNumber) {
-      btn.setAttribute('target', '_blank');
-      btn.setAttribute('rel', 'noopener noreferrer');
-    }
-
+  // 通用 WhatsApp 按钮
+  document.querySelectorAll('.whatsapp-action-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      trackEvent('whatsapp_click', { location: btn.getAttribute('data-origin') || 'general' });
+      trackEvent('whatsapp_click', { origin: btn.getAttribute('data-origin') || 'general' });
+
       if (isPlaceholderNumber) {
         e.preventDefault();
-        alert('【番茄仔 Tomato Boy】官方 WhatsApp 号码即将随正式试业公布，敬请期待！');
+        alert('【番茄仔 Tomato Boy】官方 WhatsApp 即将随试营业公布，敬请期待！');
+        return;
       }
+
+      const customMsg = btn.getAttribute('data-msg') || encodeURIComponent(config.contact.whatsappDefaultMessage);
+      const url = `https://wa.me/${whatsappNum.replace(/[^0-9]/g, '')}?text=${customMsg}`;
+      window.open(url, '_blank');
     });
   });
 
-  // Google Maps & Waze 链接配置
-  const mapsUrl = config.contact.googleMapsUrl || 'https://maps.google.com/?q=Cheras+Kuala+Lumpur';
-  document.querySelectorAll('.maps-trigger-btn').forEach(btn => {
-    btn.setAttribute('href', mapsUrl);
+  // Google Maps
+  document.querySelectorAll('.maps-action-btn').forEach(btn => {
+    btn.setAttribute('href', config.contact.googleMapsUrl);
     btn.setAttribute('target', '_blank');
     btn.setAttribute('rel', 'noopener noreferrer');
-
     btn.addEventListener('click', () => {
-      trackEvent('maps_click', { location: btn.getAttribute('data-origin') || 'general' });
-    });
-  });
-
-  // 菜单 CTA 点击追踪
-  document.querySelectorAll('.menu-trigger-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      trackEvent('menu_click', { location: 'hero_or_cta' });
+      trackEvent('maps_click', { origin: btn.getAttribute('data-origin') || 'general' });
     });
   });
 }
 
 /**
- * 滚动深度监测 (25%, 50%, 75%, 100%)
+ * 滚动深度监测
  */
-function initScrollDepthTracking() {
-  const milestones = [25, 50, 75, 100];
-  const reached = {};
+function initScrollTracker() {
+  const depths = [25, 50, 75, 100];
+  const tracked = {};
 
   window.addEventListener('scroll', () => {
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollHeight <= 0) return;
-    const currentPercent = Math.round((window.scrollY / scrollHeight) * 100);
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    if (total <= 0) return;
+    const pct = Math.round((window.scrollY / total) * 100);
 
-    milestones.forEach(m => {
-      if (currentPercent >= m && !reached[m]) {
-        reached[m] = true;
-        trackEvent('scroll_depth', { depth_percentage: m });
+    depths.forEach(d => {
+      if (pct >= d && !tracked[d]) {
+        tracked[d] = true;
+        trackEvent('scroll_depth', { depth: `${d}%` });
       }
     });
   }, { passive: true });
+}
+
+/**
+ * 事件上报统一分发
+ */
+function trackEvent(eventName, params = {}) {
+  console.log(`[Event Tracked: ${eventName}]`, params);
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  }
+
+  if (typeof window.fbq === 'function') {
+    window.fbq('trackCustom', eventName, params);
+  }
+}
+
+function initAnalytics(config) {
+  const { googleAnalyticsId, metaPixelId } = config.analytics || {};
+  if (googleAnalyticsId && googleAnalyticsId !== 'GA4_ID_HERE') {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', googleAnalyticsId);
+  }
 }
