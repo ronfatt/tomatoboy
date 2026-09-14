@@ -69,12 +69,12 @@
   <!-- Top Trending Ticker / 潮流跑马灯 -->
   <aside class="ticker-strip" aria-label="公告">
     <div class="ticker-content">
-      <span>🔥 鲜到上头！整只生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span>
+      <span>🔥 鲜到上头！整只生猛海虾 · 肥美生蚝 · 厚切石斑鱼片</span>
       <span>🍅 番茄够浓，海鲜够猛！番茄汤底 · 海鲜现煮</span>
       <span>🌊 沙巴山打根风味灵感 ➔ 降落吉隆坡 Cheras</span>
       <span>👑 啊顺师父主理 · 招牌番茄海鲜全料面</span>
       <!-- Duplicate for loop -->
-      <span>🔥 鲜到上头！整只生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span>
+      <span>🔥 鲜到上头！整只生猛海虾 · 肥美生蚝 · 厚切石斑鱼片</span>
       <span>🍅 番茄够浓，海鲜够猛！番茄汤底 · 海鲜现煮</span>
       <span>🌊 沙巴山打根风味灵感 ➔ 降落吉隆坡 Cheras</span>
       <span>👑 啊顺师父主理 · 招牌番茄海鲜全料面</span>
@@ -93,24 +93,25 @@
       </a>
 
       <div class="header-right-actions">
-        <a href="#location" class="btn-ghost-dark" style="padding: 7px 14px; font-size: 0.75rem;">
-          📍 Cheras
+        <a href="#social-hub" class="btn-ghost-dark" style="padding: 7px 12px; font-size: 0.75rem;">
+          关注社群
         </a>
-        <a href="javascript:void(0);" class="btn-header-whatsapp whatsapp-trigger" data-origin="header">
+        <button class="btn-header-whatsapp open-order-sheet-btn" data-origin="header">
           💬 WhatsApp
-        </a>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- SCREEN 1: HERO (1:1 四方微圆角高清实拍 + 极简大标题) -->
+    <!-- SCREEN 1: HERO (1:1 四方微圆角高清实拍 + 食材探测器) -->
     <section class="hero-compact" id="top">
       <div class="container hero-layout">
         <!-- Text Side -->
         <div class="hero-copy">
-          <div class="pill-status">
-            <span>🔥 鲜到上头 · 番茄汤底 海鲜现煮</span>
+          <div class="pill-live-status">
+            <span class="pulse-dot"></span>
+            <span>筹备试营业中 · 开放首批 WhatsApp 尝鲜预订</span>
           </div>
 
           <h1 class="hero-main-title">
@@ -123,23 +124,24 @@
           </div>
 
           <p class="hero-intro-text">
-            沙巴山打根<strong>啊顺师父</strong>掌勺。自熬纯熟番茄果泥红汤，整只生猛海虾、大颗肥美生蚝与厚切石斑鱼片现点现煮！浓郁酸甜，海味爆表！
+            沙巴山打根<strong>啊顺师父</strong>掌勺。自熬纯熟番茄果泥红汤，整只生猛海虾、大颗肥美生蚝与厚切石斑鱼片现点现煮！轻点下方食材探秘 👇
           </p>
 
-          <!-- 4大食材标签 -->
-          <div class="hero-ingredient-badges">
-            <span class="ing-badge">🦐 整只生猛海虾</span>
-            <span class="ing-badge">🦪 肥美鲜大生蚝</span>
-            <span class="ing-badge">🐟 厚切石斑鱼片</span>
-            <span class="ing-badge">脆 酥香炸鱼皮</span>
+          <!-- 交互食材探测胶囊行 -->
+          <div class="hotspot-pills-row" id="hotspot-pills-container">
+            <button class="hotspot-pill-btn active" data-spot="prawn">🦐 生猛海虾</button>
+            <button class="hotspot-pill-btn" data-spot="oyster">🦪 肥大生蚝</button>
+            <button class="hotspot-pill-btn" data-spot="fish">🐟 厚切石斑</button>
+            <button class="hotspot-pill-btn" data-spot="crispy-skin">脆 酥炸鱼皮</button>
+            <button class="hotspot-pill-btn" data-spot="tomato-broth">🍅 自熬番茄泥</button>
           </div>
 
           <div class="hero-btn-row">
-            <a href="javascript:void(0);" class="btn-primary-fire whatsapp-trigger" data-origin="hero_primary">
+            <button class="btn-primary-fire open-order-sheet-btn" data-origin="hero_primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-              <span>WhatsApp 预约试吃</span>
-            </a>
-            <a href="#location" class="btn-ghost-dark maps-trigger" data-origin="hero_maps">
+              <span>极速预约尝鲜</span>
+            </button>
+            <a href="#location" class="btn-ghost-dark">
               <span>📍 到店导航</span>
             </a>
           </div>
@@ -155,6 +157,12 @@
               id="hero-main-dish-img"
               loading="eager"
             >
+
+            <!-- 食材探测即时解说气泡 (Interactive Hotspot Popover) -->
+            <div class="hotspot-info-bubble show" id="hotspot-bubble">
+              <h4 id="hotspot-bubble-title">生猛海虾 (Ocean Prawn) <span style="font-size:0.7rem; color:var(--tb-yellow);">点击查看更多食材 ▾</span></h4>
+              <p id="hotspot-bubble-desc">整只鲜虾在滚烫番茄汤中快速烫熟，虾肉紧致清脆，虾青素自然融入红汤！</p>
+            </div>
           </div>
 
           <!-- Mascot Floating Stamp Badge -->
@@ -173,7 +181,7 @@
           <div>
             <h2>实拍招牌 · 每一碗都是硬菜</h2>
           </div>
-          <span class="hint">👈 手机单指轻扫探索</span>
+          <span class="hint">👈 手机横向轻扫探索</span>
         </div>
 
         <!-- Horizontal Swipe Track -->
@@ -183,7 +191,24 @@
       </div>
     </section>
 
-    <!-- SCREEN 3: 精炼故事与风味 Bento (2格合一，干净不拖沓) -->
+    <!-- SCREEN 3: 社交媒体矩阵 (Facebook / 小红书 / TikTok 点赞关注) -->
+    <section class="section-flow" id="social-hub">
+      <div class="container">
+        <div class="social-matrix-card">
+          <div class="social-matrix-head">
+            <span class="bento-badge">Community · 粉丝专属福利</span>
+            <h3>关注番茄仔社群 · 领第一波开业礼</h3>
+            <p>第一时间获取【开业买一送一】、【优惠券】与【探店隐藏吃法】！</p>
+          </div>
+
+          <div class="social-btn-grid" id="social-buttons-container">
+            <!-- Populated dynamically by main.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: 精炼故事与风味 Bento (2格合一) -->
     <section class="section-flow">
       <div class="container">
         <div class="bento-compact-grid">
@@ -192,7 +217,7 @@
             <span class="bento-badge">Heritage · 从山打根到 Cheras</span>
             <h3 class="bento-title">不用飞去沙巴，在 Cheras 就能吃到这一碗</h3>
             <p class="bento-desc">
-              主理人<strong>啊顺师父</strong>来自沙巴山打根。在海港长大的师父，把熟悉的海鲜现煮技艺与反复熬煮的熟番茄红汤带到吉隆坡蕉赖，还原最地道的鲜酸海味。
+              主理人<strong>啊顺师父</strong>来自沙巴山打根。自小在海港长大，师父把熟悉的海鲜现煮技艺与反复熬煮的熟番茄红汤带到吉隆坡蕉赖，还原最地道的鲜酸海味。
             </p>
           </div>
 
@@ -200,7 +225,7 @@
           <div class="bento-card">
             <span class="bento-badge">Flavour · 为什么是番茄汤</span>
             <h3 class="bento-title">天然果酸 · 突出海味</h3>
-            <p class="bento-desc">番茄天然果酸祛除海鲜微腥，两者交融回甘，鲜爽不腻！</p>
+            <p class="bento-desc">纯熟番茄天然果酸祛除微腥，与海鲜交融回甘，鲜爽不油腻！</p>
             <div class="flavor-chips-row">
               <div class="chip-item">
                 <strong>酸香</strong>
@@ -220,10 +245,9 @@
       </div>
     </section>
 
-    <!-- SCREEN 4: 到店指南 & 极简 FAQ -->
+    <!-- SCREEN 5: 门店定位与双导航 (Google Maps & Waze) -->
     <section class="section-flow" id="location">
       <div class="container">
-        <!-- Mini Location Card -->
         <div class="location-mini-card">
           <div class="loc-grid-inner">
             <div class="loc-detail-side">
@@ -231,20 +255,24 @@
               <h3>番茄仔 Tomato Boy · Cheras, KL</h3>
               <p>📍 马来西亚 吉隆坡 蕉赖 (具体商铺号及试营业日期即将公布)</p>
               <p>⏰ 筹备试营业中 · 每日 10:30 AM – 9:30 PM (周一至周日)</p>
-              <p>🚗 周边设有充足停车空间，泊车便利。</p>
+              <p>🚗 周边备有街区泊车位及便利停车空间，导航无忧。</p>
             </div>
             <div class="loc-actions">
-              <a href="javascript:void(0);" class="btn-primary-fire whatsapp-trigger" data-origin="location_card">
-                <span>💬 WhatsApp 咨询</span>
-              </a>
               <a href="#maps" class="btn-ghost-dark maps-trigger" data-origin="location_card">
-                <span>📍 Google Maps 导航</span>
+                <span>📍 Google Maps</span>
               </a>
+              <a href="#waze" class="btn-waze waze-trigger" data-origin="location_card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.85 1.2 5.41 3.12 7.23L4 22l3.41-1.09C8.84 21.57 10.38 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <span>Waze 导航</span>
+              </a>
+              <button class="btn-primary-fire open-order-sheet-btn" data-origin="location_card">
+                <span>💬 WhatsApp 咨询</span>
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Mini Accordion FAQ -->
+        <!-- Mini FAQ -->
         <div style="margin-top: 24px;">
           <h3 style="font-family: var(--font-display); font-size: 1.125rem; margin-bottom: 10px;">常见问答 FAQ</h3>
           <div class="faq-clean-list" id="faq-clean-container">
@@ -255,8 +283,40 @@
     </section>
   </main>
 
+  <!-- iOS 原生触感极速点单底抽屉 (Bottom Sheet Modal) -->
+  <div class="bottom-sheet-backdrop" id="order-sheet-modal">
+    <div class="bottom-sheet-panel">
+      <div class="sheet-drag-handle"></div>
+      <div class="sheet-head">
+        <h3>🍅 极速预订 / 尝鲜选单</h3>
+        <button class="sheet-close-btn" id="close-sheet-btn">&times;</button>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--tb-text-muted); margin-bottom: 12px;">
+        勾选您想尝试的菜品，点击直接带入 WhatsApp 自动生成预订文本：
+      </p>
+
+      <!-- 菜品快捷勾选 -->
+      <div class="sheet-dish-picker" id="sheet-dish-list">
+        <!-- Injected dynamically -->
+      </div>
+
+      <!-- 用餐方式切换 -->
+      <div class="sheet-dining-toggle">
+        <button class="toggle-option-btn active" data-type="堂食到店">🍜 堂食到店</button>
+        <button class="toggle-option-btn" data-type="外带打包">🥡 外带打包</button>
+      </div>
+
+      <!-- 生成 WhatsApp -->
+      <button class="btn-primary-fire" id="submit-sheet-order-btn" style="width: 100%; justify-content: center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+        <span>一键发送到 WhatsApp 预订</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer style="padding: 32px 0; text-align: center; font-size: 0.75rem; color: #665E57; border-top: 1px solid var(--tb-border); margin-top: 32px;">
+  <footer style="padding: 28px 0; text-align: center; font-size: 0.75rem; color: #665E57; border-top: 1px solid var(--tb-border); margin-top: 32px;">
     <div class="container">
       <p style="color: #FFFFFF; font-weight: 800; margin-bottom: 4px;">番茄仔 TOMATO BOY · 沙巴番茄海鲜面</p>
       <p>Cheras, Kuala Lumpur, Malaysia · Chef Ah Soon (Sandakan, Sabah)</p>
@@ -272,12 +332,12 @@
         <span>招牌菜单</span>
       </a>
 
-      <a href="javascript:void(0);" class="dock-btn highlight whatsapp-trigger" data-origin="bottom_dock">
+      <button class="dock-btn highlight open-order-sheet-btn" data-origin="bottom_dock">
         <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-        <span>WhatsApp 预约</span>
-      </a>
+        <span>WhatsApp 预订</span>
+      </button>
 
-      <a href="#location" class="dock-btn maps-trigger" data-origin="bottom_dock">
+      <a href="#location" class="dock-btn">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
         <span>到店导航</span>
       </a>

@@ -1,5 +1,5 @@
 /**
- * 番茄仔 Tomato Boy — 官方品牌与门店数据配置中心 (实拍菜品全景版)
+ * 番茄仔 Tomato Boy — 官方配置中心 (全功能进阶版)
  */
 
 window.TOMATO_BOY_CONFIG = {
@@ -11,88 +11,98 @@ window.TOMATO_BOY_CONFIG = {
     storyHeadline: "一碗来自沙巴的番茄海鲜面",
     chefName: "啊顺师父",
     chefTitle: "Chef Ah Soon · Sandakan, Sabah",
-    chefOrigin: "沙巴山打根 (Sandakan, Sabah)",
     locationCity: "Cheras, Kuala Lumpur, Malaysia"
+  },
+
+  // 营业与到店状态
+  status: {
+    isOpen: false,
+    badgeText: "🟢 筹备试营业中 · 开放首批 WhatsApp 尝鲜预订",
+    softOpeningDate: "即将正式公布"
   },
 
   contact: {
     whatsappNumber: "WHATSAPP_NUMBER_HERE", 
-    whatsappDefaultMessage: "你好番茄仔！我在官网上看到了实拍招牌面，想咨询预订！",
-    googleMapsUrl: "https://maps.google.com/?q=Tomato+Boy+Cheras+Kuala+Lumpur",
-    wazeUrl: "https://waze.com/ul?q=Tomato+Boy+Cheras+Kuala+Lumpur",
+    whatsappDefaultMessage: "你好番茄仔！我想咨询 / 预约尝鲜【沙巴番茄海鲜面】！",
+    // Google Maps & Waze 本地双导航
+    googleMapsUrl: "https://maps.google.com/?q=Cheras+Kuala+Lumpur+Tomato+Boy",
+    wazeUrl: "https://waze.com/ul?q=Cheras+Kuala+Lumpur",
     address: {
       displayAddressZh: "吉隆坡 蕉赖 (Cheras, Kuala Lumpur)",
       displayAddressEn: "Cheras, Kuala Lumpur, Malaysia",
-      fullAddressPlaceholder: "详细门牌与商圈地址即将公布 (Cheras 核心据点)",
-      parkingInfo: "街区充足停车位 / 周边便利泊车"
+      fullAddressPlaceholder: "详细门牌与商圈地址即将公布 (Cheras 核心美食圈)",
+      parkingInfo: "周边配有街区泊车位与便利停车空间"
     },
     openingHours: {
-      displayZh: "筹备试营业中 · 10:30 AM – 9:30 PM (周一至周日)",
-      displayEn: "Soft Opening Soon · 10:30 AM – 9:30 PM",
-      days: "Monday – Sunday",
+      displayZh: "每日 10:30 AM – 9:30 PM (筹备试营业中)",
       hours: "10:30 - 21:30"
-    },
-    social: {
-      facebook: "https://facebook.com/tomatoboy.my",
-      instagram: "https://instagram.com/tomatoboy.my"
     }
   },
 
-  // 手机端自选测配器数据 (全部联动高清真实实拍图)
-  tasteConfigurator: [
+  // 社交媒体矩阵 (Facebook, 小红书 RED, TikTok)
+  socialChannels: [
     {
-      id: "seafood-combo",
-      tabName: "👑 豪华全料海鲜面",
-      dishNameZh: "招牌番茄海鲜全料面",
-      tagline: "大虾 + 肥厚生蚝 + 厚切鱼片 + 酥脆炸鱼皮",
-      acidity: "★★★★★ (果酸浓郁开胃)",
-      sweetness: "★★★★★ (三重海味天然回甘)",
-      image: "assets/images/dish-signature-seafood-combo.jpg",
-      note: "与 Logo 完美呼应的镇店代表作！整只红虾、大颗生蚝与鲜鱼片滚汤现烫，配上炸鱼皮吸满茄汁，鲜到上头！"
+      platform: "facebook",
+      nameZh: "Facebook 官方粉丝专页",
+      nameEn: "Follow on Facebook",
+      badge: "抢鲜开业福利",
+      url: "https://facebook.com/tomatoboy.my",
+      color: "#1877F2",
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+      tip: "点赞 Follow 即可第一时间获取【开业买一送一 / 优惠券】一手资讯！"
     },
     {
-      id: "giant-prawn-noodles",
-      tabName: "🦐 生猛巨头虾生面",
-      dishNameZh: "生猛大头虾香脆生面",
-      tagline: "对开焦香大头虾，爆满虾膏融入滑蛋芡汁",
-      acidity: "★★★☆☆ (鲜香醇厚)",
-      sweetness: "★★★★★ (爆膏虾甜与镬气)",
-      image: "assets/images/dish-giant-prawn-noodles.jpg",
-      note: "金黄焦香巨型大头虾，虾肉脆韧弹牙，搭配炸生面与浓郁滑蛋，镬气十足！"
+      platform: "xiaohongshu",
+      nameZh: "小红书 官方探店号",
+      nameEn: "Red / 小红书 @番茄仔",
+      badge: "解锁隐藏吃法",
+      url: "https://www.xiaohongshu.com",
+      color: "#FE2C55",
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>',
+      tip: "关注小红书打卡标签 #番茄仔TomatoBoy，看真实食客测评与私房吃法！"
     },
     {
-      id: "grouper-fish",
-      tabName: "🐟 厚切石斑鱼片面",
-      dishNameZh: "厚切石斑鱼片番茄面",
-      tagline: "厚切石斑鱼片整齐排列，纯净鲜滑无腥",
-      acidity: "★★★★★ (自然番茄果酸)",
-      sweetness: "★★★★☆ (海鱼纯正胶质清甜)",
-      image: "assets/images/dish-tomato-grouper-fish.jpg",
-      note: "石斑鱼片厚切不断生，鱼肉如蒜瓣般细嫩，浸入纯正熬煮番茄果泥，暖胃又过瘾！"
-    },
-    {
-      id: "red-snapper",
-      tabName: "🔴 鲜红鲷鱼片番茄面",
-      dishNameZh: "深海红鲷鱼片番茄面",
-      tagline: "红皮紧实鱼肉，红汤衬红鱼的极致视觉",
-      acidity: "★★★★★ (极度生津醒胃)",
-      sweetness: "★★★★☆ (肉质弹爽甘鲜)",
-      image: "assets/images/dish-tomato-red-snapper.jpg",
-      note: "精选深海红鱼切片，红润诱人，鱼皮爽滑鱼肉紧实，每一口汤都透着山打根的海风滋味！"
-    },
-    {
-      id: "giant-prawn-rice",
-      tabName: "🍚 招牌大头虾特调饭",
-      dishNameZh: "浓郁海味大头虾特调饭",
-      tagline: "生猛大头虾开背，浓香特制酱汁裹满米饭",
-      acidity: "★★★★☆ (浓醇咸鲜微酸)",
-      sweetness: "★★★★★ (虾汁拌饭灵魂绝配)",
-      image: "assets/images/dish-giant-prawn-rice.jpg",
-      note: "不想吃面？这一盘大虾盖饭绝对震撼！虾膏与海鲜浓汁浸润每一粒米饭，口口暴击！"
+      platform: "tiktok",
+      nameZh: "TikTok 官方视频号",
+      nameEn: "TikTok @tomatoboy.my",
+      badge: "爆汁嗦面现场",
+      url: "https://tiktok.com",
+      color: "#000000",
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>',
+      tip: "沉浸式看啊顺师父熬煮番茄浓汤、大头虾焦香镬气短视频，深夜别点！"
     }
   ],
 
-  // 完整实拍经典菜单库
+  // 1:1 实拍大碗「食材探测器」热点解说 (Interactive Foodie Hotspots)
+  ingredientHotspots: {
+    "prawn": {
+      name: "生猛海虾 (Ocean Prawn)",
+      tag: "原只现烫 · 脆弹甘甜",
+      desc: "整只鲜虾在滚烫番茄汤中快速烫熟，虾肉紧致清脆，虾青素自然融入红汤！"
+    },
+    "oyster": {
+      name: "肥美大生蚝 (Plump Oysters)",
+      tag: "大颗饱满 · 爆浆甘鲜",
+      desc: "精选肥大多汁鲜生蚝，温火断生，一口咬下尽是海洋纯净鲜汁，与番茄果酸绝配！"
+    },
+    "fish": {
+      name: "厚切石斑鱼片 (Grouper Slices)",
+      tag: "细嫩厚切 · 无腥无刺",
+      desc: "新鲜海鱼厚切片，带皮脆滑肉质如蒜瓣，完全吸饱番茄高汤精华！"
+    },
+    "crispy-skin": {
+      name: "酥香炸鱼皮 (Crispy Fish Skin)",
+      tag: "手工炸香 · 吸汁神器",
+      desc: "金黄酥脆！趁热浸入番茄红汤 3 秒，外酥内浸汁，口感层次瞬间升华！"
+    },
+    "tomato-broth": {
+      name: "自熬熟番茄原泥 (Tomato Broth)",
+      tag: "纯果慢火 · 酸甜浓郁",
+      desc: "大颗新鲜番茄熬至起沙化泥，无任何人工色素香精，纯纯果酸生津醒胃！"
+    }
+  },
+
+  // 5大经典菜品
   menu: [
     {
       id: "dish-signature-combo",
@@ -101,7 +111,7 @@ window.TOMATO_BOY_CONFIG = {
       nameEn: "Signature Seafood Tomato Noodles",
       price: "RM [待定 / TBC]",
       image: "assets/images/dish-signature-seafood-combo.jpg",
-      description: "啊顺师父巅峰作！生猛大虾、大颗生蚝、厚切鱼片与金黄炸鱼皮汇于一碗，熟成番茄天然酸香渗透每一根面条，鲜到上头！"
+      description: "生猛大虾 + 大颗肥蚝 + 厚切石斑鱼片 + 酥脆炸鱼皮。浓郁自熬番茄红汤挂面，鲜到上头！"
     },
     {
       id: "dish-giant-prawn-noodles",
@@ -110,7 +120,7 @@ window.TOMATO_BOY_CONFIG = {
       nameEn: "Giant River Prawn Crispy Noodles",
       price: "RM [待定 / TBC]",
       image: "assets/images/dish-giant-prawn-noodles.jpg",
-      description: "巨无霸大头虾对开焦香，虾膏金黄流淌，与香脆炸生面及滑蛋浓芡碰撞，镬气升腾，满足感拉满！"
+      description: "巨头大虾对开焦香，金黄虾膏流淌，搭配酥脆炸生面与滑蛋浓芡，镬气升腾！"
     },
     {
       id: "dish-grouper-fish",
@@ -119,7 +129,7 @@ window.TOMATO_BOY_CONFIG = {
       nameEn: "Grouper Fish Slice Tomato Noodles",
       price: "RM [待定 / TBC]",
       image: "assets/images/dish-tomato-grouper-fish.jpg",
-      description: "严选新鲜石斑鱼厚切，鱼片紧实滑润无暗刺，搭配慢火熬煮的鲜番茄原泥高汤，清润酸爽，久喝不燥。"
+      description: "精选新鲜石斑鱼厚切，鱼肉滑嫩带皮，浸入纯正番茄原浆高汤，清润酸爽。"
     },
     {
       id: "dish-red-snapper",
@@ -128,7 +138,7 @@ window.TOMATO_BOY_CONFIG = {
       nameEn: "Red Snapper Tomato Noodles",
       price: "RM [待定 / TBC]",
       image: "assets/images/dish-tomato-red-snapper.jpg",
-      description: "红亮诱人的深海红鱼切片，肉质细嫩弹牙，浸润在酸香四溢的番茄汤中，入口甘美温润，生津开胃。"
+      description: "红润深海鱼肉细嫩弹牙，酸香四溢的番茄汤烘托出鱼肉深层甘鲜，极度开胃。"
     },
     {
       id: "dish-giant-prawn-rice",
@@ -137,35 +147,26 @@ window.TOMATO_BOY_CONFIG = {
       nameEn: "Giant Prawn with Rich Broth Rice",
       price: "RM [待定 / TBC]",
       image: "assets/images/dish-giant-prawn-rice.jpg",
-      description: "生猛大虾开背香煎，淋上特制酸甜海味浓汁与蒜酥，搭配香热米饭与嫩绿时蔬，浓郁开胃，暴风吸入！"
+      description: "生猛大虾开背煎香，淋上特制酸甜海味浓汁，搭配香热米饭，口口浓郁满足！"
     }
   ],
 
-  // 常见问答 FAQ
+  // 常见问答
   faqs: [
     {
-      qZh: "番茄仔的番茄海鲜面有什么独特之处？",
-      qEn: "What makes Tomato Boy noodles special?",
-      aZh: "看看我们的真实实拍！每一碗都是「番茄够浓，海鲜够猛」——自熬纯番茄果泥酸香开胃，搭配整只大虾、肥美生蚝、厚切石斑鱼片及手工炸鱼皮现点现煮，拒绝香精勾兑，天然鲜甜！",
-      aEn: "Our noodles feature freshly simmered real tomato purée broth paired with whole fresh prawns, plump oysters, thick grouper fish slices, and crispy fish skin."
-    },
-    {
-      qZh: "番茄仔在哪里？什么时候试营业？",
+      qZh: "番茄仔在哪里？如何导航？",
       qEn: "Where is Tomato Boy located?",
-      aZh: "番茄仔位于吉隆坡蕉赖 (Cheras, Kuala Lumpur)。我们正在积极筹备试营业，具体店址与开业时间将第一时间在官方渠道公布，欢迎通过 WhatsApp 提前关注登记！",
-      aEn: "Located in Cheras, Kuala Lumpur. Soft opening dates and exact shoplot will be officially announced shortly."
+      aZh: "番茄仔位于吉隆坡蕉赖 (Cheras, KL)。页面提供 Google Maps 和 Waze 双导航支持，具体店址即将正式通告！"
     },
     {
-      qZh: "啊顺师父是谁？",
-      qEn: "Who is Chef Ah Soon?",
-      aZh: "啊顺师父来自沙巴山打根 (Sandakan, Sabah)，山打根海港的海风与新鲜海产滋养了师父的烹饪灵感。师父将熟悉的沙巴海鲜煮面技艺带到 Cheras，让大家不用飞沙巴也能吃到地道风味。",
-      aEn: "Chef Ah Soon hails from Sandakan, Sabah, bringing beloved Sabah-inspired seafood culinary heritage to Cheras, KL."
+      qZh: "这一碗招牌海鲜面里面有什么？",
+      qEn: "What ingredients are in the signature bowl?",
+      aZh: "招牌全料面包含：原只生猛海虾、大颗肥美生蚝、厚切石斑海鱼片、手工酥炸鱼皮，配以纯番茄果泥熬煮的浓汤！"
     },
     {
-      qZh: "除了番茄面，还有其他选择吗？",
-      qEn: "Are there other options besides tomato noodles?",
-      aZh: "有的！除了招牌全料面与石斑鱼片面，我们还推出镬气十足的【生猛大头虾脆生面】以及浓郁下饭的【大头虾特调浓汁饭】，面饭俱备，满足所有海鲜爱好者的胃！",
-      aEn: "Yes! In addition to tomato soup noodles, we also serve Giant River Prawn Crispy Noodles and Giant Prawn Rich Sauce Rice."
+      qZh: "如何提前预订或关注试营业动态？",
+      qEn: "How to reserve or follow soft opening updates?",
+      aZh: "点击页面上的【WhatsApp 预约】或关注我们的 Facebook、小红书和 TikTok，即可在试营业开放时第一时间收到通知并锁定尝鲜名额！"
     }
   ],
 
