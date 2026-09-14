@@ -21,12 +21,6 @@
   <meta property="og:image" content="assets/images/dish-signature-seafood-combo.jpg">
   <meta property="og:locale" content="zh_MY">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="番茄仔 Tomato Boy | 番茄够浓，海鲜够猛！">
-  <meta name="twitter:description" content="鲜到上头！生猛大头虾、鲜蚝与厚切鱼片番茄面，Cheras 正式登场。">
-  <meta name="twitter:image" content="assets/images/dish-signature-seafood-combo.jpg">
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/tomato-boy-mascot.png">
   <link rel="apple-touch-icon" href="assets/images/tomato-boy-mascot.png">
@@ -34,7 +28,7 @@
   <!-- Fonts Preconnect & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
 
@@ -60,42 +54,11 @@
           "addressCountry": "MY"
         },
         "url": "https://ronfatt.github.io/tomatoboy/",
-        "hasMenu": "https://ronfatt.github.io/tomatoboy/#menu",
         "founder": {
           "@type": "Person",
           "name": "啊顺师父 (Chef Ah Soon)",
           "homeLocation": "Sandakan, Sabah, Malaysia"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://ronfatt.github.io/tomatoboy/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "番茄仔的番茄海鲜面有什么独特之处？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "自熬纯番茄果泥酸香开胃，搭配整只生猛海虾、大颗生蚝、厚切石斑鱼片及手工炸鱼皮现点现煮，真材实料，天然鲜甜！"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "番茄仔在哪里？什么时候试营业？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "番茄仔位于吉隆坡蕉赖 (Cheras, Kuala Lumpur)，目前正在积极筹备试营业。"
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "啊顺师父是谁？",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "啊顺师父来自沙巴山打根 (Sandakan, Sabah)，是番茄仔招牌番茄海鲜面的主理厨师。"
-            }
-          }
-        ]
       }
     ]
   }
@@ -104,48 +67,36 @@
 <body>
 
   <!-- Top Trending Ticker / 潮流跑马灯 -->
-  <aside class="ticker-bar" aria-label="热点通告">
-    <div class="ticker-track">
-      <div class="ticker-item"><span>🍅 番茄够浓，海鲜够猛！</span></div>
-      <div class="ticker-item"><span>🔥 鲜到上头！生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span></div>
-      <div class="ticker-item"><span>🌊 沙巴山打根原味灵感 ➔ 降落吉隆坡 Cheras</span></div>
-      <div class="ticker-item"><span>👑 啊顺师父主理 · 番茄汤底 · 海鲜现煮</span></div>
-      <!-- Duplicate for smooth infinite loop -->
-      <div class="ticker-item"><span>🍅 番茄够浓，海鲜够猛！</span></div>
-      <div class="ticker-item"><span>🔥 鲜到上头！生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span></div>
-      <div class="ticker-item"><span>🌊 沙巴山打根原味灵感 ➔ 降落吉隆坡 Cheras</span></div>
-      <div class="ticker-item"><span>👑 啊顺师父主理 · 番茄汤底 · 海鲜现煮</span></div>
+  <aside class="ticker-strip" aria-label="公告">
+    <div class="ticker-content">
+      <span>🔥 鲜到上头！整只生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span>
+      <span>🍅 番茄够浓，海鲜够猛！番茄汤底 · 海鲜现煮</span>
+      <span>🌊 沙巴山打根风味灵感 ➔ 降落吉隆坡 Cheras</span>
+      <span>👑 啊顺师父主理 · 招牌番茄海鲜全料面</span>
+      <!-- Duplicate for loop -->
+      <span>🔥 鲜到上头！整只生猛大虾 · 肥美生蚝 · 厚切石斑鱼片</span>
+      <span>🍅 番茄够浓，海鲜够猛！番茄汤底 · 海鲜现煮</span>
+      <span>🌊 沙巴山打根风味灵感 ➔ 降落吉隆坡 Cheras</span>
+      <span>👑 啊顺师父主理 · 招牌番茄海鲜全料面</span>
     </div>
   </aside>
 
-  <!-- Sticky Mobile-First Navigation Header -->
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <!-- Mascot Brand Logo -->
-      <a href="#top" class="brand-badge-link" aria-label="番茄仔 Tomato Boy 首页">
-        <img src="assets/images/tomato-boy-logo-badge.jpg" alt="番茄仔 Tomato Boy Logo Badge" class="brand-badge-img">
-        <div class="brand-name-group">
-          <span class="brand-name-zh">番茄仔</span>
-          <span class="brand-name-en">TOMATO BOY</span>
+  <!-- Sticky Header -->
+  <header class="site-header">
+    <div class="container header-flex">
+      <a href="#top" class="brand-combo" aria-label="番茄仔首页">
+        <img src="assets/images/tomato-boy-logo-badge.jpg" alt="Logo" class="brand-avatar">
+        <div class="brand-text">
+          <h1>番茄仔</h1>
+          <span>TOMATO BOY</span>
         </div>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="desktop-nav" aria-label="主要导航">
-        <a href="#hero" class="nav-link">实拍招牌</a>
-        <a href="#taste-builder" class="nav-link">自选测配</a>
-        <a href="#flavor-triad" class="nav-link">为什么是番茄汤</a>
-        <a href="#chef-passport" class="nav-link">山打根故事</a>
-        <a href="#menu" class="nav-link">经典实拍菜单</a>
-        <a href="#location" class="nav-link">来 Cheras 找我们</a>
-      </nav>
-
-      <!-- Quick Header Action -->
-      <div class="header-cta-group">
-        <a href="#location" class="btn btn-pill-dark btn-sm maps-action-btn" data-origin="header">
-          📍 导航
+      <div class="header-right-actions">
+        <a href="#location" class="btn-ghost-dark" style="padding: 7px 14px; font-size: 0.75rem;">
+          📍 Cheras
         </a>
-        <a href="javascript:void(0);" class="btn btn-pill-whatsapp btn-sm whatsapp-action-btn" data-origin="header">
+        <a href="javascript:void(0);" class="btn-header-whatsapp whatsapp-trigger" data-origin="header">
           💬 WhatsApp
         </a>
       </div>
@@ -153,406 +104,185 @@
   </header>
 
   <main>
-    <!-- SECTION 01: HERO — Eye-catching, Real Food Led, Mascot-led -->
-    <section class="hero-wrapper" id="hero">
-      <div class="container hero-grid">
-        <!-- Hero Text Side -->
-        <div class="hero-text-side">
-          <div class="hero-tag-row">
-            <span class="sticker-tag tag-red">🔥 鲜到上头！</span>
-            <span class="sticker-tag tag-gold">👑 实拍真材实料</span>
-            <span class="sticker-tag tag-outline">📍 Cheras, KL</span>
+    <!-- SCREEN 1: HERO (1:1 四方微圆角高清实拍 + 极简大标题) -->
+    <section class="hero-compact" id="top">
+      <div class="container hero-layout">
+        <!-- Text Side -->
+        <div class="hero-copy">
+          <div class="pill-status">
+            <span>🔥 鲜到上头 · 番茄汤底 海鲜现煮</span>
           </div>
 
-          <!-- Semantic H1 (Strict requirement) -->
-          <h1 class="hero-punchline">
+          <h1 class="hero-main-title">
             一碗来自沙巴的<br>
-            <span class="text-fire">番茄海鲜面</span>
+            <span class="highlight-red">番茄海鲜面</span>
           </h1>
 
-          <div class="hero-sub-slogan">
+          <div class="hero-sub-punch">
             🍅 番茄够浓，海鲜够猛！
           </div>
 
-          <p class="hero-desc">
-            沙巴山打根<strong>啊顺师父</strong>掌勺。自熬纯熟番茄果泥浓汤，生猛海虾、大颗肥蚝与厚切石斑鱼片现点现煮！浓郁酸甜，海味爆表，一口嗦到碗底朝天！
+          <p class="hero-intro-text">
+            沙巴山打根<strong>啊顺师父</strong>掌勺。自熬纯熟番茄果泥红汤，整只生猛海虾、大颗肥美生蚝与厚切石斑鱼片现点现煮！浓郁酸甜，海味爆表！
           </p>
 
-          <!-- Food Highlights Pills -->
-          <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 20px;">
-            <span style="font-size:0.75rem; background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1); color:#FFD166;">🦐 整只生猛海虾</span>
-            <span style="font-size:0.75rem; background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1); color:#FFD166;">🦪 肥美鲜大生蚝</span>
-            <span style="font-size:0.75rem; background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1); color:#FFD166;">🐟 厚切石斑鱼片</span>
-            <span style="font-size:0.75rem; background:rgba(255,255,255,0.06); padding:4px 10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1); color:#FFD166;">脆 酥香炸鱼皮</span>
+          <!-- 4大食材标签 -->
+          <div class="hero-ingredient-badges">
+            <span class="ing-badge">🦐 整只生猛海虾</span>
+            <span class="ing-badge">🦪 肥美鲜大生蚝</span>
+            <span class="ing-badge">🐟 厚切石斑鱼片</span>
+            <span class="ing-badge">脆 酥香炸鱼皮</span>
           </div>
 
-          <div class="hero-cta-flex">
-            <a href="#taste-builder" class="btn btn-pill-fire">
-              <span>🔥 自选鲜度测配</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="javascript:void(0);" class="btn btn-pill-whatsapp whatsapp-action-btn" data-origin="hero">
+          <div class="hero-btn-row">
+            <a href="javascript:void(0);" class="btn-primary-fire whatsapp-trigger" data-origin="hero_primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
               <span>WhatsApp 预约试吃</span>
             </a>
-            <a href="#location" class="btn btn-pill-dark maps-action-btn" data-origin="hero">
+            <a href="#location" class="btn-ghost-dark maps-trigger" data-origin="hero_maps">
               <span>📍 到店导航</span>
             </a>
           </div>
         </div>
 
-        <!-- Hero Visual: Real Signature Dish with Mascot Floating -->
-        <div class="mascot-stage">
-          <div class="mascot-badge-frame" id="mascot-badge-stage" title="点击番茄仔集鲜气！">
-            <!-- Real Food Hero Photo -->
+        <!-- Visual Side: 1:1 四方微圆角高清大图 (Squircle Card) -->
+        <div class="hero-visual-frame">
+          <div class="hero-image-card">
+            <span class="sticker-flag-top">👑 实拍镇店全料王</span>
             <img 
               src="assets/images/dish-signature-seafood-combo.jpg" 
-              alt="番茄仔招牌全料海鲜面实拍：整只大虾、大生蚝与石斑鱼片" 
-              class="mascot-main-img"
+              alt="番茄仔招牌全料海鲜面实拍：整只大虾、大生蚝、石斑鱼片与炸鱼皮" 
+              id="hero-main-dish-img"
               loading="eager"
             >
-
-            <!-- Floating Interactive Badges -->
-            <div class="bubble-chip chip-top-right">
-              <span>👑</span>
-              <span>鲜到上头！</span>
-            </div>
-            <div class="bubble-chip chip-bot-left">
-              <span>🍅</span>
-              <span>实拍镇店王！</span>
-            </div>
-          </div>
-          <div class="tap-prompt-hint">👆 点击海鲜大碗 · 互动集鲜气 🍅</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 02: INTERACTIVE TASTE CONFIGURATOR (5款实拍大菜交互选择) -->
-    <section class="taste-builder-section" id="taste-builder">
-      <div class="container">
-        <div class="taste-builder-card">
-          <div class="taste-header">
-            <div>
-              <span class="badge-headline">Interactive Foodie Picker</span>
-              <h2 class="taste-title">测测你今天的番茄海鲜专属搭配</h2>
-            </div>
-            <span class="sticker-tag tag-gold" style="display:none; @media(min-width:768px){display:inline-flex;}">实拍自选</span>
           </div>
 
-          <!-- Selection Tabs -->
-          <div class="taste-pills-row" id="taste-tabs-wrap">
-            <!-- Injected dynamically by main.js -->
-          </div>
-
-          <!-- Dynamic Display Box -->
-          <div class="taste-display-grid">
-            <div class="taste-preview-img-wrap">
-              <img src="assets/images/dish-signature-seafood-combo.jpg" alt="Dish Preview" id="taste-preview-img" class="taste-preview-img">
-            </div>
-
-            <div class="taste-info-content">
-              <h3 id="taste-dish-title">招牌番茄海鲜全料面</h3>
-              <div class="taste-tagline" id="taste-dish-tagline">大虾 + 肥厚生蚝 + 厚切鱼片 + 酥脆炸鱼皮</div>
-              
-              <div class="taste-metrics">
-                <div class="metric-col">
-                  <span class="lbl">果酸生津度</span>
-                  <span class="val" id="taste-metric-acidity">★★★★★</span>
-                </div>
-                <div class="metric-col">
-                  <span class="lbl">海产鲜甜度</span>
-                  <span class="val" id="taste-metric-sweetness">★★★★★</span>
-                </div>
-              </div>
-
-              <p style="font-size: 0.875rem; color: #D5CCC3; line-height: 1.7; margin-bottom: 20px;" id="taste-dish-note">
-                与 Logo 完美呼应的镇店代表作！整只红虾、大颗生蚝与鲜鱼片滚汤现烫，配上炸鱼皮吸满茄汁，鲜到上头！
-              </p>
-
-              <button class="btn btn-pill-whatsapp whatsapp-action-btn" id="taste-order-cta" data-origin="taste_builder">
-                <span>💬 WhatsApp 直接预订这碗！</span>
-              </button>
-            </div>
+          <!-- Mascot Floating Stamp Badge -->
+          <div class="sticker-mascot-float" id="mascot-interactive-stamp" title="点击番茄仔有惊喜！">
+            <span class="bubble-tip">点击集鲜气 ✨</span>
+            <img src="assets/images/tomato-boy-logo-badge.jpg" alt="番茄仔 Mascot">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 03: WHY TOMATO SOUP? (酸香 · 鲜甜 · 开胃) -->
-    <section class="section-wrap" id="flavor-triad">
+    <!-- SCREEN 2: 5大爆品实拍画廊 (横滑 Food Drops) -->
+    <section class="section-flow" id="menu">
       <div class="container">
-        <div class="section-head">
-          <span class="badge-headline">Flavour Philosophy</span>
-          <h2 class="h2-title">为什么是番茄汤？</h2>
-          <div class="h2-sub">番茄的自然酸香，让海鲜的鲜味更加突出</div>
+        <div class="section-title-clean">
+          <div>
+            <h2>实拍招牌 · 每一碗都是硬菜</h2>
+          </div>
+          <span class="hint">👈 手机单指轻扫探索</span>
         </div>
 
-        <div class="bento-triad-grid">
-          <!-- Card 1 -->
-          <div class="bento-triad-card">
-            <div class="triad-huge-char">酸香</div>
-            <div class="triad-sub-en">Bright Acidity</div>
-            <p>
-              纯番茄温火慢熬成果泥原浆，温润果酸自然祛腥解腻，第一口滚汤下肚，舌底生津、瞬间醒胃！
+        <!-- Horizontal Swipe Track -->
+        <div class="food-swipe-track" id="food-swipe-gallery">
+          <!-- Populated by main.js with 5 real dish photos -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: 精炼故事与风味 Bento (2格合一，干净不拖沓) -->
+    <section class="section-flow">
+      <div class="container">
+        <div class="bento-compact-grid">
+          <!-- Card 1: 师父故事 -->
+          <div class="bento-card">
+            <span class="bento-badge">Heritage · 从山打根到 Cheras</span>
+            <h3 class="bento-title">不用飞去沙巴，在 Cheras 就能吃到这一碗</h3>
+            <p class="bento-desc">
+              主理人<strong>啊顺师父</strong>来自沙巴山打根。在海港长大的师父，把熟悉的海鲜现煮技艺与反复熬煮的熟番茄红汤带到吉隆坡蕉赖，还原最地道的鲜酸海味。
             </p>
           </div>
 
-          <!-- Card 2 -->
-          <div class="bento-triad-card">
-            <div class="triad-huge-char" style="color:var(--tb-gold);">鲜甜</div>
-            <div class="triad-sub-en">Seafood Sweetness</div>
-            <p>
-              生猛大虾与厚切石斑鱼片在酸性滚汤中快速锁鲜，果酸释放出海产深层甘美，浓厚鲜甜久久回甘。
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bento-triad-card">
-            <div class="triad-huge-char" style="color:#06D6A0;">开胃</div>
-            <div class="triad-sub-en">Appetising Warmth</div>
-            <p>
-              面条挂满浓稠番茄汁，配上炸鱼皮的脆香，没有油脂负担，只有让人大呼「鲜到上头」的踏实快感！
-            </p>
+          <!-- Card 2: 风味三字诀 -->
+          <div class="bento-card">
+            <span class="bento-badge">Flavour · 为什么是番茄汤</span>
+            <h3 class="bento-title">天然果酸 · 突出海味</h3>
+            <p class="bento-desc">番茄天然果酸祛除海鲜微腥，两者交融回甘，鲜爽不腻！</p>
+            <div class="flavor-chips-row">
+              <div class="chip-item">
+                <strong>酸香</strong>
+                <span>醒胃生津</span>
+              </div>
+              <div class="chip-item">
+                <strong>鲜甜</strong>
+                <span>海产原味</span>
+              </div>
+              <div class="chip-item">
+                <strong>开胃</strong>
+                <span>大口喝光</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 04: CHEF STORY (从山打根，到 Cheras) -->
-    <section class="section-wrap" id="chef-passport">
+    <!-- SCREEN 4: 到店指南 & 极简 FAQ -->
+    <section class="section-flow" id="location">
       <div class="container">
-        <div class="passport-card">
-          <div class="passport-grid">
-            <div class="passport-photo-side">
-              <img 
-                src="assets/images/chef-placeholder.svg" 
-                alt="啊顺师父 Chef Ah Soon · Sandakan Sabah" 
-                loading="lazy"
-                style="width:100%; aspect-ratio:4/4.5; object-fit:cover;"
-              >
-              <span class="stamp-seal-badge">山打根原味传承</span>
+        <!-- Mini Location Card -->
+        <div class="location-mini-card">
+          <div class="loc-grid-inner">
+            <div class="loc-detail-side">
+              <span class="bento-badge">Visit Store · 门店位置</span>
+              <h3>番茄仔 Tomato Boy · Cheras, KL</h3>
+              <p>📍 马来西亚 吉隆坡 蕉赖 (具体商铺号及试营业日期即将公布)</p>
+              <p>⏰ 筹备试营业中 · 每日 10:30 AM – 9:30 PM (周一至周日)</p>
+              <p>🚗 周边设有充足停车空间，泊车便利。</p>
             </div>
-
-            <div class="passport-info-side">
-              <div class="passport-route">
-                <span>📍 沙巴山打根 (Sandakan)</span>
-                <span>✈️</span>
-                <span>📍 吉隆坡蕉赖 (Cheras)</span>
-              </div>
-
-              <span class="badge-headline">Master Chef Story</span>
-              <h2 class="h2-title" style="margin-bottom:14px;">从山打根，到 Cheras</h2>
-
-              <p class="passport-story-p">
-                <strong>啊顺师父来自沙巴山打根。</strong>自小在海港之城长大，师父对海鲜的鲜度与品质有着刻进本能的严苛追求。
-              </p>
-              <p class="passport-story-p">
-                从熟悉的海味日常，到这一锅融合浓郁番茄酸香的特色红汤，师父希望把这份来自沙巴的原汁原味，原原本本呈献给吉隆坡的食客。
-              </p>
-
-              <div class="quote-highlight">
-                今天，不用飞去沙巴。<br>
-                在 Cheras，就能吃到这一碗沙巴风味番茄海鲜面。
-              </div>
-
-              <a href="#location" class="btn btn-pill-gold btn-sm maps-action-btn">
-                <span>来 Cheras 品尝师父手艺 →</span>
+            <div class="loc-actions">
+              <a href="javascript:void(0);" class="btn-primary-fire whatsapp-trigger" data-origin="location_card">
+                <span>💬 WhatsApp 咨询</span>
+              </a>
+              <a href="#maps" class="btn-ghost-dark maps-trigger" data-origin="location_card">
+                <span>📍 Google Maps 导航</span>
               </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- SECTION 05: REAL MENU SWIPER (实拍菜单滑动) -->
-    <section class="section-wrap" id="menu">
-      <div class="container">
-        <div class="section-head">
-          <span class="badge-headline">Signature Menu</span>
-          <h2 class="h2-title">Menu 实拍招牌选择</h2>
-          <div class="h2-sub">番茄够浓，海鲜够猛 · 手机端左右轻扫</div>
-        </div>
-
-        <!-- Mobile Horizontal Swiper & Desktop Grid -->
-        <div class="menu-scroll-container" id="menu-items-swiper">
-          <!-- Populated by main.js with the 5 real dish photos -->
-        </div>
-
-        <div style="text-align: center; margin-top: 36px;">
-          <a href="javascript:void(0);" class="btn btn-pill-whatsapp whatsapp-action-btn" data-origin="menu_bottom">
-            <span>💬 WhatsApp 咨询今日新鲜供料与预订</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 06: THE EXPERIENCE (一口番茄汤 · 一口海鲜 · 一口面) -->
-    <section class="section-wrap" id="experience">
-      <div class="container">
-        <div class="experience-wrap">
-          <span class="badge-headline">Taste The Rhythm</span>
-          <h2 class="h2-title">这一碗的品尝节奏</h2>
-          <div class="h2-sub">鲜到上头的三重境界</div>
-
-          <div class="step-flow-row">
-            <div class="step-card">
-              <div class="step-num-pill">1</div>
-              <h4>一口番茄汤</h4>
-              <p>先喝一口滚烫酸香的红汤，纯番茄果酸瞬间唤醒味蕾。</p>
-            </div>
-            <div class="step-card">
-              <div class="step-num-pill" style="background:var(--tb-gold); color:#0D0B0A;">2</div>
-              <h4>一口海鲜</h4>
-              <p>大虾脆弹、生蚝肥嫩、鱼片滑润，海味甘甜在酸汤中层层迸发。</p>
-            </div>
-            <div class="step-card">
-              <div class="step-num-pill" style="background:#06D6A0; color:#0D0B0A;">3</div>
-              <h4>一口爽面</h4>
-              <p>大口嗦面！面条吸饱浓厚茄汁，配上炸鱼皮，爽快到底！</p>
-            </div>
-          </div>
-
-          <p style="font-family: var(--font-display); font-size: 1.15rem; color: var(--tb-gold); letter-spacing: 1px;">
-            先是番茄的酸香 · 然后是海鲜的鲜甜 · 最后是面吸满汤汁的满足感
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 07: LOCATION & COME FIND US -->
-    <section class="section-wrap" id="location">
-      <div class="container">
-        <div class="section-head">
-          <span class="badge-headline">Store Location</span>
-          <h2 class="h2-title">Come Find Us</h2>
-          <div class="h2-sub">来 Cheras 找我们</div>
-        </div>
-
-        <div class="location-card">
-          <div class="loc-info-item">
-            <div class="loc-icon-bubble">📍</div>
-            <div class="loc-text">
-              <h4>门店位置 Address</h4>
-              <p><strong>番茄仔 Tomato Boy · Cheras, Kuala Lumpur</strong></p>
-              <p>马来西亚 吉隆坡 蕉赖 (具体商铺号及试营业日期即将公布)</p>
-            </div>
-          </div>
-
-          <div class="loc-info-item">
-            <div class="loc-icon-bubble">⏰</div>
-            <div class="loc-text">
-              <h4>营业时间 Opening Hours</h4>
-              <p>筹备试营业中 · 预计 10:30 AM – 9:30 PM (周一至周日)</p>
-            </div>
-          </div>
-
-          <div class="loc-info-item">
-            <div class="loc-icon-bubble">🚗</div>
-            <div class="loc-text">
-              <h4>停车便利 Parking</h4>
-              <p>周边设有充足停车位与便捷泊车设施，泊车无忧。</p>
-            </div>
-          </div>
-
-          <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;">
-            <a href="#maps" class="btn btn-pill-gold maps-action-btn" data-origin="location_box">
-              <span>📍 Google Maps 一键导航</span>
-            </a>
-            <a href="javascript:void(0);" class="btn btn-pill-whatsapp whatsapp-action-btn" data-origin="location_box">
-              <span>💬 WhatsApp 提前咨询</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 08: FAQ ACCORDION -->
-    <section class="section-wrap" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <span class="badge-headline">Local Foodie FAQ</span>
-          <h2 class="h2-title">常见问题 FAQ</h2>
-        </div>
-
-        <div class="faq-wrap" id="faq-accordion-wrap">
-          <!-- Populated dynamically by main.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 09: FINAL HERO CTA -->
-    <section class="section-wrap" style="text-align: center; padding-bottom: 60px;">
-      <div class="container">
-        <div style="max-width: 680px; margin: 0 auto; background: radial-gradient(circle, #2A0F0C 0%, #161312 80%); border: 2px solid var(--tb-card-border); border-radius: var(--radius-lg); padding: 48px 24px;">
-          <img src="assets/images/tomato-boy-logo-badge.jpg" alt="Tomato Boy" style="width: 84px; height: 84px; border-radius: 50%; border: 3px solid var(--tb-gold); margin: 0 auto 18px auto; box-shadow: 0 0 24px var(--tb-red-glow);">
-          
-          <h2 class="h2-title" style="margin-bottom: 8px;">今天，就来喝一碗番茄汤。</h2>
-          <div style="font-size: 1rem; font-weight: 800; color: var(--tb-gold); margin-bottom: 16px;">Taste Sabah in a Bowl. 鲜到上头！</div>
-          
-          <p style="font-size: 0.875rem; color: #C2B6A9; margin-bottom: 28px;">
-            <strong>番茄仔 Tomato Boy · 沙巴番茄海鲜面</strong><br>
-            番茄够浓，海鲜够猛！我们在 Cheras 等你开饭。
-          </p>
-
-          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
-            <a href="#menu" class="btn btn-pill-fire">
-              <span>查看实拍菜单</span>
-            </a>
-            <a href="javascript:void(0);" class="btn btn-pill-whatsapp whatsapp-action-btn" data-origin="final_cta">
-              <span>WhatsApp 联系我们</span>
-            </a>
-            <a href="#location" class="btn btn-pill-dark maps-action-btn" data-origin="final_cta">
-              <span>Google Maps 导航</span>
-            </a>
+        <!-- Mini Accordion FAQ -->
+        <div style="margin-top: 24px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.125rem; margin-bottom: 10px;">常见问答 FAQ</h3>
+          <div class="faq-clean-list" id="faq-clean-container">
+            <!-- Rendered by main.js -->
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <img src="assets/images/tomato-boy-logo-badge.jpg" alt="Logo" class="footer-logo-small">
-      <div>
-        <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #FFFFFF; margin-bottom: 4px;">番茄仔 TOMATO BOY</h3>
-        <p>沙巴番茄海鲜面 · Cheras, Kuala Lumpur</p>
-        <p style="font-size: 0.75rem; margin-top: 4px;">Chef Ah Soon · Sandakan, Sabah</p>
-      </div>
-      <div style="display: flex; gap: 18px; font-size: 0.8125rem;">
-        <a href="#top" style="color:#C2B6A9;">回到顶部</a>
-        <a href="#menu" style="color:#C2B6A9;">实拍菜单</a>
-        <a href="#location" style="color:#C2B6A9;">门店定位</a>
-        <a href="javascript:void(0);" class="whatsapp-action-btn" style="color:#25D366;">WhatsApp</a>
-      </div>
-      <div style="font-size: 0.6875rem; color: #554E48; margin-top: 10px;">
-        © 2026 番茄仔 Tomato Boy. All Rights Reserved. Sabah Tomato Seafood Noodles in Cheras, KL.
-      </div>
+  <!-- Footer -->
+  <footer style="padding: 32px 0; text-align: center; font-size: 0.75rem; color: #665E57; border-top: 1px solid var(--tb-border); margin-top: 32px;">
+    <div class="container">
+      <p style="color: #FFFFFF; font-weight: 800; margin-bottom: 4px;">番茄仔 TOMATO BOY · 沙巴番茄海鲜面</p>
+      <p>Cheras, Kuala Lumpur, Malaysia · Chef Ah Soon (Sandakan, Sabah)</p>
+      <p style="margin-top: 8px;">© 2026 番茄仔 Tomato Boy. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- Mobile Bottom Floating Conversion Dock (Menu | WhatsApp | Maps) -->
-  <nav class="mobile-bottom-dock" aria-label="移动端快捷悬浮栏">
-    <div class="dock-grid">
-      <!-- 1. Menu -->
-      <a href="#menu" class="dock-tap-item">
+  <!-- Fixed Mobile Bottom Dock (大拇指安全触控区) -->
+  <aside class="bottom-mobile-dock" aria-label="快捷悬浮导航">
+    <div class="dock-content-grid">
+      <a href="#menu" class="dock-btn">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <span>实拍菜单</span>
+        <span>招牌菜单</span>
       </a>
 
-      <!-- 2. WhatsApp (Visual Focus) -->
-      <a href="javascript:void(0);" class="dock-tap-item dock-highlight-btn whatsapp-action-btn" data-origin="mobile_dock">
+      <a href="javascript:void(0);" class="dock-btn highlight whatsapp-trigger" data-origin="bottom_dock">
         <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-        <span>WhatsApp 订购</span>
+        <span>WhatsApp 预约</span>
       </a>
 
-      <!-- 3. Maps -->
-      <a href="#location" class="dock-tap-item maps-action-btn" data-origin="mobile_dock">
+      <a href="#location" class="dock-btn maps-trigger" data-origin="bottom_dock">
         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
         <span>到店导航</span>
       </a>
     </div>
-  </nav>
+  </aside>
 
   <!-- Scripts -->
   <script src="js/config.js"></script>
