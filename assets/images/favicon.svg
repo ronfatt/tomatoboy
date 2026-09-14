@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <circle cx="16" cy="18" r="12" fill="#D83A27"/>
+  <ellipse cx="14" cy="18" rx="11" ry="11" fill="#FF5238" opacity="0.3"/>
+  <!-- Leaf -->
+  <path d="M16 6 C16 3 15 2 13 1 C15 3 16 4 16 6 Z" fill="#1C3B2B"/>
+  <path d="M16 6 Q 10 3 8 5 Q 12 7 16 6 Z" fill="#2D6A4F"/>
+  <path d="M16 6 Q 22 3 24 5 Q 20 7 16 6 Z" fill="#2D6A4F"/>
+</svg>

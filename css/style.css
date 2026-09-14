@@ -1,0 +1,1646 @@
+/* ==========================================================================
+   TOMATO BOY (番茄仔) — Premium Sabah Tomato Seafood Noodles
+   Mobile-first, editorial-style CSS Design System
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  /* Brand Colours */
+  --color-tomato: #D83A27;
+  --color-tomato-dark: #B52715;
+  --color-tomato-light: #FF5A44;
+  --color-tomato-soft: rgba(216, 58, 39, 0.08);
+  --color-tomato-glow: rgba(216, 58, 39, 0.18);
+
+  --color-forest: #1C3B2B;
+  --color-forest-light: #2D5841;
+  --color-forest-soft: rgba(28, 59, 43, 0.08);
+
+  --color-charcoal: #171513;
+  --color-charcoal-light: #25221F;
+  --color-charcoal-muted: #57514B;
+
+  --color-cream: #FAF7F2;
+  --color-cream-card: #FFFFFF;
+  --color-cream-tint: #F3ECE1;
+  --color-cream-border: #E8DED1;
+
+  --color-accent-gold: #C98236;
+
+  /* Typography */
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  /* Elevations */
+  --shadow-subtle: 0 4px 20px -2px rgba(23, 21, 19, 0.05);
+  --shadow-card: 0 12px 32px -4px rgba(23, 21, 19, 0.08);
+  --shadow-float: 0 20px 40px -8px rgba(216, 58, 39, 0.16);
+
+  /* Layout & Spacing */
+  --container-max: 1200px;
+  --header-height: 72px;
+  --bottom-bar-height: 68px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Base Reset & Global Styles --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.65;
+  overflow-x: hidden;
+  padding-bottom: calc(var(--bottom-bar-height) + 12px); /* Space for mobile sticky CTA */
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Layout Container --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* --- Typography Helpers --- */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-tomato);
+  margin-bottom: 12px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-tomato);
+}
+
+.eyebrow.light {
+  color: var(--color-tomato-light);
+}
+
+.eyebrow.light::before {
+  background-color: var(--color-tomato-light);
+}
+
+.section-title-wrap {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-charcoal);
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.section-subhead {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  margin-top: 6px;
+}
+
+.section-lead {
+  font-size: 1.0625rem;
+  color: var(--color-charcoal-muted);
+  max-width: 640px;
+  margin-top: 14px;
+}
+
+/* --- Buttons & CTAs --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 26px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-tomato);
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px -2px var(--color-tomato-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-tomato-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -2px var(--color-tomato-glow);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-charcoal);
+  border: 1.5px solid var(--color-cream-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 6px 20px -2px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -2px rgba(37, 211, 102, 0.45);
+}
+
+.btn-dark {
+  background-color: var(--color-charcoal);
+  color: #FFFFFF;
+}
+
+.btn-dark:hover {
+  background-color: var(--color-charcoal-light);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 0.8125rem;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background-color: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-cream-border);
+  height: var(--header-height);
+  transition: all var(--transition-fast);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-link img, .brand-link svg {
+  height: 44px;
+  width: auto;
+}
+
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-charcoal);
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-tomato);
+    transition: width var(--transition-fast);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.mobile-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 992px) {
+  .mobile-header-actions {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Section 01: Hero Section
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  padding-top: 36px;
+  padding-bottom: 64px;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .hero-section {
+    padding-top: 60px;
+    padding-bottom: 96px;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+  }
+}
+
+.hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-cream-tint);
+  border: 1px solid var(--color-cream-border);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  letter-spacing: 0.04em;
+}
+
+.hero-h1 {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1.18;
+  color: var(--color-charcoal);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .hero-h1 {
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-h1 {
+    font-size: 3.75rem;
+  }
+}
+
+.hero-h1 span.highlight {
+  color: var(--color-tomato);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-en-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  margin-bottom: 18px;
+}
+
+.hero-description {
+  font-size: 1.0625rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.hero-meta-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 20px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 32px;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.hero-meta-item .dot-divider {
+  color: var(--color-cream-border);
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-media-wrapper {
+  position: relative;
+}
+
+.hero-card-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-cream-border);
+  background-color: #FFFFFF;
+}
+
+.hero-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.5;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-card-frame:hover .hero-img {
+  transform: scale(1.03);
+}
+
+.hero-floating-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(23, 21, 19, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.badge-bowl-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-tomato);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-floating-badge h4 {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.hero-floating-badge p {
+  font-size: 0.75rem;
+  color: #D1C7BD;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Section 02: Signature Dish (我们的招牌)
+   ========================================================================== */
+.signature-section {
+  padding: 72px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-cream-border);
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+@media (min-width: 992px) {
+  .signature-section {
+    padding: 100px 0;
+  }
+}
+
+.signature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .signature-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 72px;
+  }
+}
+
+.signature-media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.signature-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.2;
+  object-fit: cover;
+}
+
+.signature-seal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--color-tomato);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(216, 58, 39, 0.4);
+  transform: rotate(-10deg);
+}
+
+.signature-seal span.seal-top {
+  font-family: var(--font-serif);
+  font-size: 0.9375rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.signature-seal span.seal-bot {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  opacity: 0.9;
+}
+
+.flavor-triad-banner {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 24px 0;
+}
+
+.triad-item {
+  padding: 6px 14px;
+  background-color: var(--color-cream-tint);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-tomato-dark);
+  letter-spacing: 2px;
+}
+
+.signature-copy {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--color-charcoal);
+  margin-bottom: 28px;
+}
+
+.signature-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.signature-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.detail-bullet {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-forest-soft);
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.signature-detail-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 2px;
+}
+
+.signature-detail-item p {
+  font-size: 0.875rem;
+  color: var(--color-charcoal-muted);
+}
+
+/* ==========================================================================
+   Section 03: Why Tomato Soup? (为什么是番茄汤？)
+   ========================================================================== */
+.why-section {
+  padding: 80px 0;
+  background-color: var(--color-cream);
+}
+
+@media (min-width: 992px) {
+  .why-section {
+    padding: 110px 0;
+  }
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+.why-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all var(--transition-smooth);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-tomato);
+}
+
+.why-character {
+  font-family: var(--font-serif);
+  font-size: 3.25rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-tomato);
+  margin-bottom: 12px;
+}
+
+.why-en-badge {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  margin-bottom: 16px;
+}
+
+.why-card p {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.7;
+}
+
+.why-quote-box {
+  margin-top: 48px;
+  padding: 28px 32px;
+  background-color: #FFFFFF;
+  border-left: 4px solid var(--color-tomato);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-subtle);
+}
+
+.why-quote-box p {
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   Section 04: Chef Story (从山打根，到 Cheras)
+   ========================================================================== */
+.chef-section {
+  padding: 80px 0;
+  background-color: var(--color-charcoal);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .chef-section {
+    padding: 120px 0;
+  }
+}
+
+.chef-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .chef-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+  }
+}
+
+.chef-portrait-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  border: 1px solid #332E29;
+}
+
+.chef-portrait-wrap img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background-color: #1F1C19;
+}
+
+.chef-origin-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--color-tomato);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+}
+
+.chef-title-block {
+  margin-bottom: 28px;
+}
+
+.chef-title-block .section-title {
+  color: #FFFFFF;
+}
+
+.chef-title-block .section-subhead {
+  color: var(--color-tomato-light);
+}
+
+.chef-story-content {
+  font-size: 1.125rem;
+  line-height: 1.95;
+  color: #D3CBC3;
+  margin-bottom: 32px;
+}
+
+.chef-story-content p {
+  margin-bottom: 18px;
+}
+
+.chef-story-highlight {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  border-left: 3px solid var(--color-tomato);
+  padding-left: 20px;
+  margin: 28px 0;
+}
+
+.chef-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid #332E29;
+}
+
+.chef-stat-item h5 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.chef-stat-item p {
+  font-size: 0.8125rem;
+  color: #9C9389;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Section 05: Seafood & Ingredients (新鲜海鲜，是这一碗的灵魂)
+   ========================================================================== */
+.seafood-section {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+@media (min-width: 992px) {
+  .seafood-section {
+    padding: 110px 0;
+  }
+}
+
+.seafood-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .seafood-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+.seafood-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-cream-border);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.seafood-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+}
+
+.seafood-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.seafood-card:hover .seafood-card-img {
+  transform: scale(1.04);
+}
+
+.seafood-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.seafood-card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.seafood-card-en {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-forest);
+  margin-bottom: 12px;
+}
+
+.seafood-card-body p {
+  font-size: 0.875rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   Section 06: Menu (Tomato Boy Signature Selection)
+   ========================================================================== */
+.menu-section {
+  padding: 80px 0;
+  background-color: var(--color-cream);
+}
+
+@media (min-width: 992px) {
+  .menu-section {
+    padding: 120px 0;
+  }
+}
+
+.menu-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+@media (min-width: 992px) {
+  .menu-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.menu-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-cream-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-tomato);
+}
+
+.menu-card.featured {
+  border: 2px solid var(--color-tomato);
+}
+
+.menu-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background-color: var(--color-tomato);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(216, 58, 39, 0.3);
+}
+
+.menu-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-cream-tint);
+}
+
+.menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.menu-card:hover .menu-img {
+  transform: scale(1.05);
+}
+
+.menu-card-content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.menu-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+}
+
+.menu-price-tag {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--color-tomato);
+  background-color: var(--color-tomato-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.menu-card-subtitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-forest);
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.menu-card-desc {
+  font-size: 0.875rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.menu-card-action {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-cream-border);
+}
+
+/* ==========================================================================
+   Section 07: The Experience (一口番茄汤 · 一口海鲜 · 一口面)
+   ========================================================================== */
+.experience-section {
+  padding: 100px 0;
+  background-color: var(--color-charcoal);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+}
+
+.experience-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.experience-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin: 54px 0;
+}
+
+@media (min-width: 768px) {
+  .experience-steps {
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+  }
+}
+
+.exp-step-item {
+  position: relative;
+  flex: 1;
+}
+
+.exp-step-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #25221F;
+  border: 1px solid #423C36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-tomato-light);
+}
+
+.exp-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.exp-step-desc {
+  font-size: 0.9375rem;
+  color: #BDB3A7;
+  line-height: 1.7;
+}
+
+.exp-final-word {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Section 08: Location & Visit Us (Come Find Us · 来 Cheras 找我们)
+   ========================================================================== */
+.location-section {
+  padding: 80px 0;
+  background-color: #FFFFFF;
+}
+
+@media (min-width: 992px) {
+  .location-section {
+    padding: 110px 0;
+  }
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .location-grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+  }
+}
+
+.location-info-card {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+}
+
+.loc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-cream-border);
+}
+
+.loc-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.loc-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-cream-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-tomato);
+  flex-shrink: 0;
+}
+
+.loc-detail h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.loc-detail p {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.6;
+}
+
+.loc-detail .placeholder-note {
+  font-size: 0.75rem;
+  color: var(--color-accent-gold);
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.location-map-visual {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-cream-border);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  background-color: var(--color-cream-tint);
+}
+
+.map-placeholder-box {
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #F5ECE0 100%);
+}
+
+.map-pin-pulse {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-tomato-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.map-pin-pulse::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--color-tomato);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.map-placeholder-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.map-placeholder-box p {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-muted);
+  max-width: 360px;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Section 09: FAQ Section (针对 SEO 的常见问答)
+   ========================================================================== */
+.faq-section {
+  padding: 80px 0;
+  background-color: var(--color-cream);
+}
+
+@media (min-width: 992px) {
+  .faq-section {
+    padding: 110px 0;
+  }
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq-item.active {
+  border-color: var(--color-tomato);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 22px 24px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.faq-q-text {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+}
+
+.faq-icon-arrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-tomato);
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 24px;
+}
+
+.faq-item.active .faq-answer-wrap {
+  max-height: 280px;
+  padding: 0 24px 22px 24px;
+}
+
+.faq-answer-text {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.8;
+  border-top: 1px solid var(--color-cream-tint);
+  padding-top: 16px;
+}
+
+/* ==========================================================================
+   Section 10: Social Proof / Community (预留食客口碑模块)
+   ========================================================================== */
+.social-proof-section {
+  padding: 60px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--color-cream-border);
+}
+
+.social-proof-card {
+  background: var(--color-cream);
+  border: 1px dashed var(--color-cream-border);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.social-proof-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  margin-bottom: 6px;
+}
+
+.social-proof-card p {
+  font-size: 0.875rem;
+  color: var(--color-charcoal-muted);
+}
+
+/* ==========================================================================
+   Section 11: Final CTA (今天，就来喝一碗番茄汤)
+   ========================================================================== */
+.final-cta-section {
+  padding: 90px 0;
+  background: linear-gradient(180deg, var(--color-charcoal) 0%, #0F0E0D 100%);
+  color: #FFFFFF;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.final-cta-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.final-cta-h2 {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .final-cta-h2 {
+    font-size: 3.25rem;
+  }
+}
+
+.final-cta-en {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-tomato-light);
+  margin-bottom: 18px;
+}
+
+.final-cta-lead {
+  font-size: 1.0625rem;
+  color: #CBC2B7;
+  max-width: 580px;
+  margin: 0 auto 36px auto;
+  line-height: 1.8;
+}
+
+.final-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background-color: #12100E;
+  color: #9E948A;
+  padding: 64px 0 36px 0;
+  font-size: 0.875rem;
+  border-top: 1px solid #29241F;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .footer-top-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.footer-brand-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.footer-brand-info p {
+  color: #A3998F;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.footer-nav-col h4 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.footer-links-list li {
+  margin-bottom: 10px;
+}
+
+.footer-links-list a:hover {
+  color: var(--color-tomato-light);
+}
+
+.footer-bottom-bar {
+  padding-top: 24px;
+  border-top: 1px solid #24201C;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #6E655C;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-bar {
+    flex-direction: row;
+  }
+}
+
+/* ==========================================================================
+   Mobile Sticky Bottom Conversion Bar (Menu | WhatsApp | Maps)
+   ========================================================================== */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bottom-bar-height);
+  background-color: rgba(23, 21, 19, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 992px) {
+  .mobile-sticky-bar {
+    display: none; /* Hidden on desktop */
+  }
+}
+
+.sticky-bar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.sticky-item-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  color: #FAF5ED;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-align: center;
+  min-height: 48px; /* Touch target minimum */
+}
+
+.sticky-item-btn.btn-highlight {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  flex-direction: row;
+  gap: 6px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+}
+
+.sticky-item-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.sticky-item-btn.btn-highlight svg {
+  width: 20px;
+  height: 20px;
+}
